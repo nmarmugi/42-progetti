@@ -30,16 +30,16 @@ char	*ft_strncpy(char *dest, const char *src, size_t n)
 	return (dest);
 }
 
-size_t ft_strlcpy(char *dst, const char *src, size_t size)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-    size_t lunghezza;
+	size_t	lunghezza;
 
-    lunghezza = strlen(src, size - 1);
-    if (size == 0)
-        return (0);
-    if (lunghezza >= size -1)
-        return (NULL);
-    ft_strncpy(dst, src, lunghezza);
-    dst[lunghezza] = '\0';
-    return (lunghezza);
+	lunghezza = strlen(src, size - 1);
+	if (size == 0)
+		return (0);
+	if (lunghezza >= size -1)
+		return (NULL);
+	ft_strncpy(dst, src, lunghezza);
+	dst[lunghezza] = '\0';
+	return (lunghezza);
 }

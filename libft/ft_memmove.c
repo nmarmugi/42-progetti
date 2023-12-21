@@ -21,10 +21,10 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	d = (char *)dest;
 	s = (const char *)src;
 	if (d > s && d < s + n)
-		{
-			ft_memcpy(temp, s, n);
-			ft_memcpy(d, temp, n);
-		}
+	{
+		ft_memcpy(temp, s, n);
+		ft_memcpy(d, temp, n);
+	}
 	else
 		ft_memcpy(d, s, n);
 	return (d);
