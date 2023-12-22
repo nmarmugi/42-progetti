@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nmarmugi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: nmarmugi <nmarmugi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 14:17:15 by nmarmugi          #+#    #+#             */
-/*   Updated: 2023/12/20 14:17:19 by nmarmugi         ###   ########.fr       */
+/*   Updated: 2023/12/22 11:33:14 by nmarmugi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	*ft_memchr(const void *s, int c, size_t n)
 {
 	const unsigned char	*ptr;
-	int	i;
+	int					i;
 
 	i = 0;
 	ptr = s;

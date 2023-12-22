@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nmarmugi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: nmarmugi <nmarmugi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 13:07:34 by nmarmugi          #+#    #+#             */
-/*   Updated: 2023/12/20 13:07:38 by nmarmugi         ###   ########.fr       */
+/*   Updated: 2023/12/22 11:32:51 by nmarmugi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	int	i;
+	int		i;
 	char	*ultima_occorrenza;
 
 	i = 0;
