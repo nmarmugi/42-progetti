@@ -14,8 +14,19 @@
 
 int	ft_isalnum(int c)
 {
-	if (c >= 65 && c <= 90 || c >= 97 && c <= 122 || c >= 48 && c <= 57)
+	if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122) || (c >= 48 && c <= 57))
 		return (1);
 	else
 		return (0);
 }
+/*int	main()
+{
+	char	test_char;
+	
+	test_char = 'a';
+	if (ft_isalnum(test_char))
+		printf("%c è alfanumerico: vero\n", test_char);
+	else
+		printf("%c è alfanumerico: falso\n", test_char);
+	return 0;
+}*/

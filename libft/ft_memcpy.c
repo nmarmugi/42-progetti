@@ -21,12 +21,21 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	i = 0;
 	d = (char *)dest;
 	s = (const char *)src;
-	if (d == NULL && s == NULL)
-		return (NULL);
 	while (i < n)
 	{
 		d[i] = s[i];
 		i++;
 	}
-	return (d);
+	return (dest);
 }
+/*int	main()
+{
+	char	src[] = "Hello, World!";
+	char	dest[50];
+
+	ft_memcpy(dest, src, 13);
+	printf("src: %s\n", src);
+	printf("dest: %s\n", dest);
+
+	return 0;
+}*/

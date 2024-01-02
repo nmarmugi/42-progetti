@@ -16,16 +16,36 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 {
 	char		*d;
 	const char	*s;
-	char		temp[n];
 
 	d = (char *)dest;
 	s = (const char *)src;
 	if (d > s && d < s + n)
 	{
-		ft_memcpy(temp, s, n);
-		ft_memcpy(d, temp, n);
+		while (n > 0)
+		{
+			n--;
+			d[n] = s[n];
+		}
 	}
 	else
-		ft_memcpy(d, s, n);
-	return (d);
+	{
+		while (n > 0)
+		{
+			*d = *s;
+			d++;
+			s++;
+			n--;
+		}
+	}
+	return (dest);
 }
+/*int	main()
+{
+	char	str[] = "Hello, World!";
+	char	dest[50];
+
+	ft_memmove(dest, str, 6);
+	printf("src: %s\n", str);
+	printf("dest: %s\n", dest);
+	return 0;
+}*/

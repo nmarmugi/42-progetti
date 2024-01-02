@@ -6,7 +6,7 @@
 #    By: nmarmugi <nmarmugi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/22 12:23:13 by nmarmugi          #+#    #+#              #
-#    Updated: 2023/12/22 12:31:57 by nmarmugi         ###   ########.fr        #
+#    Updated: 2024/01/02 14:21:37 by nmarmugi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,11 @@ SRC =	ft_atoi.c \
 		ft_strrchr.c \
 		ft_toupper.c \
 		ft_tolower.c \
+		ft_substr.c \
+		ft_strjoin.c \
+		ft_strtrim.c \
+		ft_split.c \
+		ft_itoa.c \
 
 OBJS= $(SRC:.c=.o)
 

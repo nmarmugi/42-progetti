@@ -14,14 +14,22 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	char	*p;
+	char	*ptr;
 	size_t	i;
 
-	p = (char *)s;
+	ptr = (char *)s;
 	i = 0;
 	while (i < n)
 	{
-		p[i] = '\0';
+		ptr[i] = '\0';
 		i++;
 	}
 }
+/*int	main()
+{
+	char	str[10] = "Hello";
+	printf("Prima ft_bzero: %s\n", str);
+	ft_bzero(str, 5);
+	printf("Dopo ft_bzero: %s\n", str);
+	return 0;
+}*/
