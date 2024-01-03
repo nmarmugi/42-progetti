@@ -95,23 +95,26 @@ char	**ft_split(char const *s, char c)
 	tab[i] = NULL;
 	return (tab);
 }
-/*int main() {
-    char str[] = "Hello,world;this,is;a,test";
+/*int	main()
+{
+	char	str[] = "Hello,world;this,is;a,test";
+	
+	char	**risultato = ft_split(str, ',');
 
-    char **result = ft_split(str, ',');
+	if (risultato == NULL)
+	{
+		fprintf(stderr, "Errore nell'allocazione di memoria\n");
+		return 1;
+	}
 
-    if (result == NULL) {
-        fprintf(stderr, "Errore nell'allocazione di memoria\n");
-        return 1;
-    }
+	int	i = 0;
+	while (risultato[i] != NULL)
+	{
+		printf("%s\n", risultato[i]);
+		free(risultato[i]);
+		i++;
+	}
+	free(risultato);
 
-    int i = 0;
-    while (result[i] != NULL) {
-        printf("%s\n", result[i]);
-        free(result[i]);
-        i++;
-    }
-    free(result);
-
-    return 0;
+	return 0;
 }*/

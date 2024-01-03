@@ -1,34 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nmarmugi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: nmarmugi <nmarmugi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/18 16:57:15 by nmarmugi          #+#    #+#             */
-/*   Updated: 2023/12/19 11:00:29 by nmarmugi         ###   ########.fr       */
+/*   Created: 2024/01/03 14:38:41 by nmarmugi          #+#    #+#             */
+/*   Updated: 2024/01/03 15:08:56 by nmarmugi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *str)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	int	i;
+	unsigned int	i;
 
 	i = 0;
-	while (str[i] != '\0')
+	if (s == NULL || f == NULL)
+		return ;
+	while (s[i])
+	{
+		f(i, &s[i]);
 		i++;
-	return (i);
+	}
 }
-/*int	main() 
-{
-	const char	*string = "Hello, World!";
-
-	size_t	lunghezza = ft_strlen(string);
-
-	printf("Stringa: %s\n", string);
-	printf("Lunghezza della stringa: %zu\n", lunghezza);
-
-	return 0;
-}*/

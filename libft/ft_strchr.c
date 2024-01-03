@@ -14,14 +14,26 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	int	i;
-
-	i = 0;
-	while (s[i] != '\0')
+	while (*s)
 	{
-		if (s[i] == (char)c)
+		if (*s == (char)c)
 			return ((char *)s);
-		i++;
+		s++;
 	}
+	if (c == '\0')
+		return ((char *)s);
 	return (NULL);
 }
+/*int	main()
+{
+	const char	*str = "Hello, World!";
+	int	carattere = '\0';
+
+	char	*risultato = ft_strchr(str, carattere);
+	
+	if (risultato != NULL)
+		printf("'%c' è in posizione %ld.\n", carattere, risultato - str);
+	else
+		printf("'%c' non è stato trovato nella stringa.\n", carattere);
+	return 0;
+}*/

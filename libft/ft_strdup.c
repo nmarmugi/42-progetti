@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-char	ft_strcpy(char *dest, const char *src)
+char	*ft_strcpy(char *dest, const char *src)
 {
 	int	i;
 
@@ -23,7 +23,7 @@ char	ft_strcpy(char *dest, const char *src)
 		i++;
 	}
 	dest[i] = '\0';
-	return (*dest);
+	return (dest);
 }
 
 char	*ft_strdup(const char *s)
@@ -36,3 +36,19 @@ char	*ft_strdup(const char *s)
 	ft_strcpy(dup, s);
 	return (dup);
 }
+/*int	main()
+{
+	const char	*src = "Hello, World!";
+
+	char	*dest = ft_strdup(src);
+
+	if (dest != NULL)
+	{
+		printf("Stringa originale: %s\n", src);
+		printf("Stringa duplicata: %s\n", dest);
+		free(dest);
+	}
+	else
+		printf("Errore durante l'allocazione della memoria.\n");
+	return (0);
+}*/

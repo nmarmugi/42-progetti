@@ -16,7 +16,7 @@ char	*ft_strjoin(const char *s1, const char *s2)
 {
 	size_t	len_s1;
 	size_t	len_s2;
-	char	*result;
+	char	*risultato;
 
 	len_s1 = 0;
 	len_s2 = 0;
@@ -26,29 +26,29 @@ char	*ft_strjoin(const char *s1, const char *s2)
 		len_s1++;
 	while (s2[len_s2])
 		len_s2++;
-	result = (char *)malloc((len_s1 + len_s2 + 1) * sizeof(char));
-	if (!result)
+	risultato = (char *)malloc((len_s1 + len_s2 + 1) * sizeof(char));
+	if (!risultato)
 		return (NULL);
 	while (*s1)
-		*result++ = *s1++;
+		*risultato++ = *s1++;
 	while (*s2)
-		*result++ = *s2++;
-	*result = '\0';
-	return (result - len_s1 - len_s2);
+		*risultato++ = *s2++;
+	*risultato = '\0';
+	return (risultato - len_s1 - len_s2);
 }
-/*int main() 
+/*int	main() 
 {
-    const char *string1 = "Hello, ";
-    const char *string2 = "world!";
+	const char	*string1 = "Hello, ";
+	const char	*string2 = "world!";
 
-    char *result = ft_strjoin(string1, string2);
+	char	*risultato = ft_strjoin(string1, string2);
 
-    if (result != NULL)
+	if (risultato != NULL)
 	{
-        printf("Stringa concatenata: %s\n", result);
-        free(result);
-    } 
+		printf("Stringa concatenata: %s\n", risultato);
+		free(risultato);
+	}
 	else
-        printf("Errore nell'allocazione di memoria della stringa risultante.\n");
-    return 0;
+		printf("Errore nell'allocazione di memoria della stringa.\n");
+	return 0;
 }*/

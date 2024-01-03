@@ -19,3 +19,14 @@ int	ft_tolower(int c)
 	else
 		return (c);
 }
+/*int	main()
+{
+	int	uppercase_char = 'C';
+	int	lowercase_char = 'z';
+
+	printf("Carattere: %c\n", (char)uppercase_char);
+	printf("Convertito in minuscolo: %c\n", (char)ft_tolower(uppercase_char));
+	printf("\nCarattere: %c\n", (char)lowercase_char);
+	printf("Convertito in minuscolo: %c\n", (char)ft_tolower(lowercase_char));
+	return 0;
+}*/

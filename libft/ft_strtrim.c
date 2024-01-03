@@ -12,66 +12,58 @@
 
 #include "libft.h"
 
-int	is_in_set(char c, const char *set)
+static int	is_in_set(char c, const char *set)
 {
 	while (*set)
 	{
 		if (*set == c)
-			return (1);
+			return (0);
 		set++;
 	}
-	return (0);
-}
-
-size_t	find_start(const char *s1, const char *set)
-{
-	size_t	start;
-
-	start = 0;
-	while (s1[start] && is_in_set(s1[start], set))
-		start++;
-	return (start);
-}
-
-size_t	find_end(const char *s1, const char *set, size_t end)
-{
-	while (end > 0 && is_in_set(s1[end - 1], set))
-		end--;
-	return (end);
+	return (1);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	start;
 	size_t	end;
-	size_t	newlen;
-	char	*result;
+	char	*risultato;
 
-	start = find_start(s1, set);
-	end = find_end(s1, set, 0);
-	if (!s1 || !set)
+	start = 0;
+	end = ft_strlen(s1);
+	if (!s1)
 		return (NULL);
-	newlen = end - start;
-	result = (char *)malloc((newlen + 1) * sizeof(char));
-	if (!result)
-		return (NULL);
-	*result = '\0';
-	return (result);
+	if (!set)
+		return (ft_strdup(s1));
+	while (is_in_set(s1[start], set) == 0)
+		start++;
+	if (start == ft_strlen(s1))
+	{
+		risultato = ft_strdup("");
+		if (risultato == NULL)
+			return (NULL);
+		else
+			return (risultato);
+	}
+	while (is_in_set(s1[end - 1], set) == 0)
+		end--;
+	risultato = ft_substr(s1, start, end - start);
+	return (risultato);
 }
-/*int main()
+/*int	main()
 {
-    const char *input_string = "   ***Hello, World!***   ";
-    const char *set_of_chars = " *!";
+	const char	*input_string = "   ***Hello, World!***   ";
+	const char	*set_of_chars = " *!";
 
-    char *trimmed_string = ft_strtrim(input_string, set_of_chars);
+	char	*trimmed_string = ft_strtrim(input_string, set_of_chars);
 
-    if (trimmed_string != NULL) {
-        printf("Stringa originale: \"%s\"\n", input_string);
-        printf("Stringa dopo la rimozione: \"%s\"\n", trimmed_string);
-
-        free(trimmed_string);
-    } 
+	if (trimmed_string != NULL)
+	{
+		printf("Stringa originale: \"%s\"\n", input_string);
+		printf("Stringa dopo la rimozione: \"%s\"\n", trimmed_string);
+		free(trimmed_string);
+	} 
 	else
-        printf("Errore nell'allocazione di memoria della stringa.\n");
-    return 0;
+		printf("Errore nell'allocazione di memoria.\n");
+	return 0;
 }*/

@@ -14,48 +14,39 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t	sublen;
-	char	*substring;
+	size_t	i;
 	char	*temp;
 
-	temp = (char *)malloc((len + 1) * sizeof(char));
-	if (temp == NULL)
+	i = 0;
+	temp = malloc(sizeof(char) * (len + 1));
+	if (!s)
 		return (NULL);
-	substring = temp;
-	sublen = 0;
-	while (s[sublen] != '\0')
-		sublen++;
-	if (len > sublen - start)
-		len = sublen - start;
-	while (*s != '\0' && start > 0)
+	if ((size_t)start > ft_strlen(s))
+		return (ft_strdup(""));
+	if (!temp)
+		return (0);
+	while (i < len)
 	{
-		s++;
-		start--;
+		temp[i] = *(s + start + i);
+		i++;
 	}
-	while (*s != '\0' && len > 0)
-	{
-		*substring++ = *s++;
-		len--;
-	}
-	*substring = '\0';
+	temp[i] = '\0';
 	return (temp);
 }
-/*int main() 
+/*int	main() 
 {
-    const char *input_string = "Esempio di sottostringa";
-    unsigned int start_index = 0;
-    size_t substring_length = 7;
+	const char	*input_string = "Esempio di sottostringa";
+	unsigned int	start_index = 0;
+	size_t	substring_length = 7;
 
-    char *result = ft_substr(input_string, start_index, substring_length);
+	char	*result = ft_substr(input_string, start_index, substring_length);
 
-    if (result != NULL) 
+	if (result != NULL) 
 	{
-        printf("Sottostringa: %s\n", result);
-
-        free(result);
-    } 
+		printf("Sottostringa: %s\n", result);
+		free(result);
+	} 
 	else 
-        printf("Errore nell'allocazione di memoria per la sottostringa.\n");
-
-    return 0;
+		printf("Errore nell'allocazione di memoria.\n");
+	return 0;
 }*/

@@ -14,16 +14,27 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	int		i;
-	char	*ultima_occorrenza;
+	const char	*ultima_occorrenza;
 
-	i = 0;
 	ultima_occorrenza = NULL;
-	while (s[i] != '\0')
+	while (*s)
 	{
-		if (s[i] == (char)c)
-			ultima_occorrenza = (char *)s;
-		i++;
+		if (*s == (char)c)
+			ultima_occorrenza = s;
+		s++;
 	}
-	return (ultima_occorrenza);
+	if ((char)c == '\0')
+		return ((char *)s);
+	return ((char *)ultima_occorrenza);
 }
+/*int	main()
+{
+	const char	*string = "Hello, World!";
+	char	carattere = 'o';
+
+	char	*risultato = strrchr(string, carattere);
+
+	printf("Stringa: %s\n", string);
+	printf("'%c'. Risultato dopo strrchr: %s\n", carattere, risultato);
+	return 0;
+}*/
