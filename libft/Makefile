@@ -6,13 +6,13 @@
 #    By: nmarmugi <nmarmugi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/22 12:23:13 by nmarmugi          #+#    #+#              #
-#    Updated: 2024/01/03 16:17:12 by nmarmugi         ###   ########.fr        #
+#    Updated: 2024/01/03 18:54:05 by nmarmugi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME= libft.a
+NAME = libft.a
 
-PROG_NAME= libft
+PROG_NAME = libft
 
 SRC =	ft_atoi.c \
 		ft_bzero.c \
@@ -50,11 +50,11 @@ SRC =	ft_atoi.c \
 		ft_putnbr_fd.c \
 		
 		
-OBJS= $(SRC:.c=.o)
+OBJS = $(SRC:.c=.o)
 
-CC= gcc
+CC = gcc
 
-CFLAGS= -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 
 $(NAME): $(OBJS)
 		ar rcs $@ $(OBJS)
