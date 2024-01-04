@@ -12,9 +12,7 @@
 
 NAME = libft.a
 
-PROG_NAME = libft
-
-SRC =	ft_atoi.c \
+SRCS =	ft_atoi.c \
 		ft_bzero.c \
 		ft_calloc.c \
 		ft_isalnum.c \
@@ -50,35 +48,34 @@ SRC =	ft_atoi.c \
 		ft_putnbr_fd.c \
 		
 		
-OBJS = $(SRC:.c=.o)
+OBJS = $(SRCS:.c=.o)
 
-BONUS = ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c \
-			ft_lstdelone.c ft_lstiter.c ft_lstlast.c \
-				ft_lstmap.c ft_lstnew.c ft_lstsize.c \
+BONUS = ft_lstadd_back.c \
+	ft_lstadd_front.c \
+	ft_lstclear.c \
+	ft_lstdelone.c \
+	ft_lstiter.c \
+	ft_lstlast.c \
+	ft_lstmap.c \
+	ft_lstnew.c \
+	ft_lstsize.c \
 
 BONUS_OBJS = $(BONUS:.c=.o)
 
-CC = gcc
-
-CFLAGS = -Wall -Wextra -Werror
-
-$(PROG_NAME): $(OBJS) $(NAME) libft.h
-			$(CC) $(CFLAGS) -o $@ $(OBJS)
-
-$(NAME): $(OBJS)
-		ar rcs $@ $(OBJS)
-
-bonus: $(BONUS_OBJS)
-		ar rcs $@ $(BONUS_OBJS)
-
-all: $(NAME)
-
+HDRS =	libft.h
+FLAGS = -Wall -Wextra -Werror
+$(NAME):
+		gcc -c $(HDRS) $(FLAGS) $(SRCS)
+		ar rc $(NAME) $(OBJS)
+		ranlib $(NAME)
+bonus:
+		gcc -c $(HDRS) $(FLAGS) $(BONUS)
+		ar rc $(NAME) $(BONUS_OBJS)
+		ranlib $(NAME)
+all:		$(NAME)
 clean:
-		rm -rf $(OBJS) $(BONUS_OBJS)
-
-fclean: clean
-		rm -rf $(NAME)
-
-re: fclean all
-
-.PHONY: all clean fclean re
+			rm -f $(OBJS) $(BONUS_OBJS)
+fclean:		clean
+			rm -f $(NAME)
+re:			fclean all
+.PHONY:		all clean fclean re bonus
