@@ -6,28 +6,45 @@
 /*   By: nmarmugi <nmarmugi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 14:58:20 by nmarmugi          #+#    #+#             */
-/*   Updated: 2024/01/03 15:07:41 by nmarmugi         ###   ########.fr       */
+/*   Updated: 2024/01/04 15:26:29 by nmarmugi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+static void	ft_put_char(char c, int fd)
+{
+	write (fd, &c, 1);
+}
+
 void	ft_putnbr_fd(int n, int fd)
 {
-	char	buffer[12];
-	int		i;
-
-	i = 0;
-	if (n < 0)
+	if (n == -2147483648)
 	{
-		write (fd, "-", 1);
-		n = -n;
+		write (fd, "-2147483648", 11);
+		return ;
 	}
-	while (n != 0)
+	else
 	{
-		buffer[i++] = n % 10 + '0';
-		n /= 10;
+		if (n < 0)
+		{
+			ft_put_char('-', fd);
+			n = n * -1;
+		}
+		if (n > 9)
+			ft_putnbr_fd(n / 10, fd);
+		ft_put_char((n % 10) + '0', fd);
 	}
-	while (--i >= 0)
-		write (fd, &buffer[i], 1);
 }
+/*int main(void)
+{
+	int stdout_fd = 1;
+
+	write(stdout_fd, "Stampa del numero usando ft_putnbr_fd:\n", 39);
+	ft_putnbr_fd(12345, stdout_fd);
+	write(stdout_fd, "\n\n", 2);
+	write(stdout_fd, "Stampa del numero negativo usando ft_putnbr_fd:\n", 48);
+	ft_putnbr_fd(-67890, stdout_fd);
+	write(stdout_fd, "\n", 1);
+	return 0;
+}*/

@@ -6,7 +6,7 @@
 /*   By: nmarmugi <nmarmugi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 14:54:06 by nmarmugi          #+#    #+#             */
-/*   Updated: 2024/01/03 15:08:27 by nmarmugi         ###   ########.fr       */
+/*   Updated: 2024/01/04 15:24:01 by nmarmugi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,3 +24,15 @@ void	ft_putendl_fd(char *s, int fd)
 	}
 	write (fd, "\n", 1);
 }
+/*int main(void)
+{
+	int stdout_fd = 1;
+	char *messaggio = "Ciao, mondo!";
+
+	write(stdout_fd, "Stampa della stringa usando write:\n", 36);
+	write(stdout_fd, messaggio, 12);
+	write(stdout_fd, "\n\n", 2);
+	write(stdout_fd, "Stampa della stringa usando ft_putendl_fd:\n", 44);
+	ft_putendl_fd(messaggio, stdout_fd);
+	return 0;
+}*/

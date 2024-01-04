@@ -1,33 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmarmugi <nmarmugi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/03 14:50:06 by nmarmugi          #+#    #+#             */
-/*   Updated: 2024/01/04 15:28:05 by nmarmugi         ###   ########.fr       */
+/*   Created: 2024/01/04 10:55:58 by nmarmugi          #+#    #+#             */
+/*   Updated: 2024/01/04 12:21:33 by nmarmugi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+void	del(void *content)
 {
-	if (s != NULL)
-	{
-		while (*s)
-		{
-			write (fd, s, 1);
-			s++;
-		}
-	}
+	free((char *)content);
 }
-/*int main(void)
-{
-	int stdout_fd = 1;
 
-	write(stdout_fd, "Stampa della stringa usando ft_putstr_fd:\n", 42);
-	ft_putstr_fd("Ciao, mondo!", stdout_fd);
-	return 0;
-}*/
+void	ft_lstclear(t_list **lst, void (*del)(void *))
+{
+	t_list	*current;
+	t_list	*next;
+
+	current = *lst;
+	if (lst == NULL || del == NULL)
+		return ;
+	while (current != NULL)
+	{
+		next = current->next;
+		del(current->content);
+		free(current);
+		current = next;
+	}
+	*lst = NULL;
+}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nmarmugi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: nmarmugi <nmarmugi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 11:24:26 by nmarmugi          #+#    #+#             */
-/*   Updated: 2023/12/20 11:24:32 by nmarmugi         ###   ########.fr       */
+/*   Updated: 2024/01/04 13:59:19 by nmarmugi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,26 @@
 size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
 	size_t	i;
+	size_t	j;
 	size_t	dlunghezza;
 	size_t	slunghezza;
 
-	i = 0;
+	j = 0;
 	dlunghezza = ft_strlen(dest);
 	slunghezza = ft_strlen(src);
-	if (size == 0 || size <= dlunghezza)
-		return (slunghezza + size);
-	while (src[i] && dlunghezza + i < size - 1)
+	i = dlunghezza;
+	if (dlunghezza < size - 1 && size > 0)
 	{
-		dest[dlunghezza + i] = src[i];
-		i++;
+		while (src[j] && dlunghezza + j < size - 1)
+		{
+			dest[i] = src[j];
+			i++;
+			j++;
+		}
+		dest[i] = '\0';
 	}
-	dest[dlunghezza + 1] = '\0';
+	if (dlunghezza >= size)
+		dlunghezza = size;
 	return (dlunghezza + slunghezza);
 }
 /*int	main() {

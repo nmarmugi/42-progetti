@@ -6,94 +6,92 @@
 /*   By: nmarmugi <nmarmugi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 13:44:35 by nmarmugi          #+#    #+#             */
-/*   Updated: 2024/01/02 14:50:12 by nmarmugi         ###   ########.fr       */
+/*   Updated: 2024/01/04 13:50:19 by nmarmugi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	carattere_in_charset(char c, char *charset)
+int	ft_div(char a, char c)
 {
-	while (*charset)
-	{
-		if (c == *charset)
-			return (1);
-		charset++;
-	}
+	if (a == c)
+		return (1);
 	return (0);
 }
 
-int	len_st(char *str, int i, char *charset)
+int	len(const char *str, char c)
 {
+	int	i;
+
+	i = 0;
+	while (str[i] && ft_div(str[i], c) == 0)
+		i++;
+	return (i);
+}
+
+int	ft_size(const char *s, char c)
+{
+	int	i;
 	int	j;
 
+	i = 0;
 	j = 0;
-	while (!carattere_in_charset(str[i], charset) && str[i] != '\0')
+	while (*s)
 	{
-		i++;
-		j++;
+		if (ft_div (*s, c) == 1)
+			s++;
+		i = len(s, c);
+		s = s + i;
+		if (i)
+			j++;
 	}
 	return (j);
 }
 
-int	c_sot(char *str, char *charset)
+char	*my_strcpy(const char *str, int n)
 {
-	int	i;
-	int	nbr_mots;
+	char	*dest;
+	int		i;
 
+	dest = malloc((n + 1) * sizeof(char));
 	i = 0;
-	nbr_mots = 0;
-	while (str[i] != '\0')
+	if (!dest)
+		return (0);
+	while (i < n && str[i])
 	{
-		while (carattere_in_charset(str[i], charset))
-			i++;
-		if (str[i] != '\0')
-		{
-			nbr_mots++;
-			while (!carattere_in_charset(str[i], charset) && str[i] != '\0')
-				i++;
-		}
+		dest[i] = str[i];
+		i++;
 	}
-	return (nbr_mots);
+	dest[i] = 0;
+	return (dest);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	int		is;
 	int		i;
 	int		j;
-	int		k;
-	char	**tab;
+	int		size;
+	char	**dest;
 
-	is = 0;
 	i = 0;
-	tab = malloc(sizeof(char *) * (c_sot((char *)s, (char *)&c) + 1));
-	if (!(tab))
+	j = 0;
+	if (s == NULL)
 		return (NULL);
-	while (i < c_sot((char *)s, (char *)&c) && s[0] != '\0')
+	size = ft_size(s, c);
+	dest = malloc((size + 1) * sizeof(char *));
+	if (!dest)
+		return (NULL);
+	while (j < size)
 	{
-		j = 0;
-		while (carattere_in_charset(s[is], (char *)&c))
-			is++;
-		tab[i] = malloc(sizeof(char) * (len_st((char *)s, is, (char *)&c) + 1));
-		if (!(tab[i]))
-		{
-			k = 0;
-			while (k < i)
-			{
-				free(tab[k]);
-				k++;
-			}
-			free(tab);
-			return (NULL);
-		}
-		while (!carattere_in_charset(s[is], (char *)&c) && s[is] != '\0')
-			tab[i][j++] = s[is++];
-		tab[i][j] = '\0';
-		i++;
+		while (ft_div(*s, c))
+			s++;
+		i = len(s, c);
+		dest[j] = my_strcpy(s, i);
+		s = s + i;
+		j++;
 	}
-	tab[i] = NULL;
-	return (tab);
+	dest[size] = 0;
+	return (dest);
 }
 /*int	main()
 {

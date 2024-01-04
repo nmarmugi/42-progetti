@@ -6,7 +6,7 @@
 #    By: nmarmugi <nmarmugi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/22 12:23:13 by nmarmugi          #+#    #+#              #
-#    Updated: 2024/01/03 18:54:05 by nmarmugi         ###   ########.fr        #
+#    Updated: 2024/01/04 12:48:14 by nmarmugi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,20 +52,29 @@ SRC =	ft_atoi.c \
 		
 OBJS = $(SRC:.c=.o)
 
+BONUS = ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c \
+			ft_lstdelone.c ft_lstiter.c ft_lstlast.c \
+				ft_lstmap.c ft_lstnew.c ft_lstsize.c \
+
+BONUS_OBJS = $(BONUS:.c=.o)
+
 CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror
 
+$(PROG_NAME): $(OBJS) $(NAME) libft.h
+			$(CC) $(CFLAGS) -o $@ $(OBJS)
+
 $(NAME): $(OBJS)
 		ar rcs $@ $(OBJS)
 
-$(PROG_NAME): $(OBJS) $(NAME) libft.h
-			$(CC) $(CFLAGS) -o $@ $(OBJS)
+bonus: $(BONUS_OBJS)
+		ar rcs $@ $(BONUS_OBJS)
 
 all: $(NAME)
 
 clean:
-		rm -rf $(OBJS)
+		rm -rf $(OBJS) $(BONUS_OBJS)
 
 fclean: clean
 		rm -rf $(NAME)

@@ -1,33 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmarmugi <nmarmugi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/03 14:50:06 by nmarmugi          #+#    #+#             */
-/*   Updated: 2024/01/04 15:28:05 by nmarmugi         ###   ########.fr       */
+/*   Created: 2024/01/04 10:21:38 by nmarmugi          #+#    #+#             */
+/*   Updated: 2024/01/04 12:22:02 by nmarmugi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	if (s != NULL)
-	{
-		while (*s)
-		{
-			write (fd, s, 1);
-			s++;
-		}
-	}
+	if (lst == NULL || new == NULL)
+		return ;
+	new->next = *lst;
+	*lst = new;
 }
-/*int main(void)
-{
-	int stdout_fd = 1;
-
-	write(stdout_fd, "Stampa della stringa usando ft_putstr_fd:\n", 42);
-	ft_putstr_fd("Ciao, mondo!", stdout_fd);
-	return 0;
-}*/

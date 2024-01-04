@@ -1,33 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmarmugi <nmarmugi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/03 14:50:06 by nmarmugi          #+#    #+#             */
-/*   Updated: 2024/01/04 15:28:05 by nmarmugi         ###   ########.fr       */
+/*   Created: 2024/01/04 10:35:30 by nmarmugi          #+#    #+#             */
+/*   Updated: 2024/01/04 12:21:51 by nmarmugi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+t_list	*ft_lstlast(t_list *lst)
 {
-	if (s != NULL)
-	{
-		while (*s)
-		{
-			write (fd, s, 1);
-			s++;
-		}
-	}
+	if (lst == NULL)
+		return (NULL);
+	while (lst->next != NULL)
+		lst = lst->next;
+	return (lst);
 }
-/*int main(void)
-{
-	int stdout_fd = 1;
-
-	write(stdout_fd, "Stampa della stringa usando ft_putstr_fd:\n", 42);
-	ft_putstr_fd("Ciao, mondo!", stdout_fd);
-	return 0;
-}*/

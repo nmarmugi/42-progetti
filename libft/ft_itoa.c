@@ -6,71 +6,72 @@
 /*   By: nmarmugi <nmarmugi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 14:10:47 by nmarmugi          #+#    #+#             */
-/*   Updated: 2024/01/02 14:40:07 by nmarmugi         ###   ########.fr       */
+/*   Updated: 2024/01/04 15:07:14 by nmarmugi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	len(long nb)
+static int	ottieni_dimensione(int n)
 {
-	int	len;
+	int	dimensione;
 
-	len = 0;
-	if (nb == 0)
-		return (1);
-	if (nb < 0)
+	dimensione = 0;
+	if (n <= 0)
+		dimensione++;
+	while (n != 0)
 	{
-		nb *= -1;
-		len++;
+		n = n / 10;
+		dimensione++;
 	}
-	while (nb > 0)
+	return (dimensione);
+}
+
+static void	riempi_risultato(int dimensione, int offset, int n, char *risultato)
+{
+	while (dimensione > offset)
 	{
-		nb /= 10;
-		len++;
+		risultato[dimensione - 1] = n % 10 + '0';
+		n = n / 10;
+		dimensione--;
 	}
-	return (len);
 }
 
 char	*ft_itoa(int n)
 {
-	char	*str;
-	long	nb;
-	int		i;
+	int		offset;
+	int		dimensione;
+	char	*risultato;
 
-	nb = n;
-	if (nb == 0)
+	offset = 0;
+	dimensione = ottieni_dimensione(n);
+	risultato = (char *)malloc(sizeof(char) * dimensione + 1);
+	if (!(risultato))
+		return (0);
+	if (n == -2147483648)
 	{
-		i = 1;
-		str = (char *)malloc(i + 1);
-		if (!str)
-			return (NULL);
-		str[0] = '0';
+		risultato[0] = '-';
+		risultato[1] = '2';
+		n = 147483648;
+		offset = 2;
 	}
-	i = len(nb);
-	str = (char *)malloc(i + 1);
-	if (!str)
-		return (NULL);
-	str[i--] = '\0';
-	if (nb < 0)
+	if (n < 0)
 	{
-		str[0] = '-';
-		nb *= -1;
+		risultato[0] = '-';
+		offset = 1;
+		n = -n;
 	}
-	while (nb > 0)
-	{
-		str[i--] = '0' + (nb % 10);
-		nb /= 10;
-	}
-	return (str);
+	riempi_risultato(dimensione, offset, n, risultato);
+	risultato[dimensione] = '\0';
+	return (risultato);
 }
-/*int main() {
-    int num = 343534;
+/*int	main()
+{
+	int num = -9;
 
-    char *str = ft_itoa(num);
+	char *str = ft_itoa(num);
 
-    printf("Numero intero: %d\n", num);
-    printf("Rappresentazione come stringa: %s\n", str);
-
-    return 0;
+	printf("Numero intero: %d\n", num);
+	printf("Rappresentazione come stringa: %s\n", str);
+	return 0;
 }*/
