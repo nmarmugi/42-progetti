@@ -6,7 +6,7 @@
 /*   By: nmarmugi <nmarmugi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 11:24:26 by nmarmugi          #+#    #+#             */
-/*   Updated: 2024/01/04 13:59:19 by nmarmugi         ###   ########.fr       */
+/*   Updated: 2024/01/08 14:50:55 by nmarmugi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,16 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
 	size_t	i;
 	size_t	j;
-	size_t	dlunghezza;
-	size_t	slunghezza;
+	size_t	dlen;
+	size_t	slen;
 
 	j = 0;
-	dlunghezza = ft_strlen(dest);
-	slunghezza = ft_strlen(src);
-	i = dlunghezza;
-	if (dlunghezza < size - 1 && size > 0)
+	dlen = ft_strlen(dest);
+	slen = ft_strlen(src);
+	i = dlen;
+	if (dlen < size - 1 && size > 0)
 	{
-		while (src[j] && dlunghezza + j < size - 1)
+		while (src[j] && dlen + j < size - 1)
 		{
 			dest[i] = src[j];
 			i++;
@@ -33,9 +33,9 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 		}
 		dest[i] = '\0';
 	}
-	if (dlunghezza >= size)
-		dlunghezza = size;
-	return (dlunghezza + slunghezza);
+	if (dlen >= size)
+		dlen = size;
+	return (dlen + slen);
 }
 /*int	main() {
 	char	dest[20] = "Hello, ";

@@ -6,64 +6,64 @@
 /*   By: nmarmugi <nmarmugi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 14:10:47 by nmarmugi          #+#    #+#             */
-/*   Updated: 2024/01/04 15:07:14 by nmarmugi         ###   ########.fr       */
+/*   Updated: 2024/01/08 14:46:23 by nmarmugi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ottieni_dimensione(int n)
+static int	f_size(int n)
 {
-	int	dimensione;
+	int	size;
 
-	dimensione = 0;
+	size = 0;
 	if (n <= 0)
-		dimensione++;
+		size++;
 	while (n != 0)
 	{
 		n = n / 10;
-		dimensione++;
+		size++;
 	}
-	return (dimensione);
+	return (size);
 }
 
-static void	riempi_risultato(int dimensione, int offset, int n, char *risultato)
+static void	full_result(int size, int offset, int n, char *result)
 {
-	while (dimensione > offset)
+	while (size > offset)
 	{
-		risultato[dimensione - 1] = n % 10 + '0';
+		result[size - 1] = n % 10 + '0';
 		n = n / 10;
-		dimensione--;
+		size--;
 	}
 }
 
 char	*ft_itoa(int n)
 {
 	int		offset;
-	int		dimensione;
-	char	*risultato;
+	int		size;
+	char	*result;
 
 	offset = 0;
-	dimensione = ottieni_dimensione(n);
-	risultato = (char *)malloc(sizeof(char) * dimensione + 1);
-	if (!(risultato))
+	size = f_size(n);
+	result = (char *)malloc(sizeof(char) * size + 1);
+	if (!(result))
 		return (0);
 	if (n == -2147483648)
 	{
-		risultato[0] = '-';
-		risultato[1] = '2';
+		result[0] = '-';
+		result[1] = '2';
 		n = 147483648;
 		offset = 2;
 	}
 	if (n < 0)
 	{
-		risultato[0] = '-';
+		result[0] = '-';
 		offset = 1;
 		n = -n;
 	}
-	riempi_risultato(dimensione, offset, n, risultato);
-	risultato[dimensione] = '\0';
-	return (risultato);
+	full_result(size, offset, n, result);
+	result[size] = '\0';
+	return (result);
 }
 /*int	main()
 {

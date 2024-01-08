@@ -1,0 +1,45 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nmarmugi <nmarmugi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/04 10:07:33 by nmarmugi          #+#    #+#             */
+/*   Updated: 2024/01/08 16:35:46 by nmarmugi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+t_list	*ft_lstnew(void *content)
+{
+	t_list	*new_node;
+
+	new_node = (t_list *)malloc(sizeof(t_list));
+	if (new_node == NULL)
+		return (NULL);
+	new_node->content = content;
+	new_node->next = NULL;
+	return (new_node);
+}
+/*int main()
+{
+    // Creazione di un nuovo nodo con ft_lstnew
+    t_list *newNode = ft_lstnew("Contenuto del nuovo nodo");
+
+    // Verifica se la creazione del nuovo nodo è riuscita
+    if (newNode == NULL)
+    {
+        fprintf(stderr, "Errore durante la creazione del nuovo nodo.\n");
+        return 1;
+    }
+
+    // Stampa del contenuto del nuovo nodo
+    printf("Contenuto del nuovo nodo: %s\n", (char *)newNode->content);
+
+    // Deallocazione della memoria assegnata al nuovo nodo
+    free(newNode);
+
+    return 0;
+}*/

@@ -6,91 +6,74 @@
 /*   By: nmarmugi <nmarmugi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 13:44:35 by nmarmugi          #+#    #+#             */
-/*   Updated: 2024/01/04 13:50:19 by nmarmugi         ###   ########.fr       */
+/*   Updated: 2024/01/08 13:22:14 by nmarmugi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_div(char a, char c)
-{
-	if (a == c)
-		return (1);
-	return (0);
-}
-
-int	len(const char *str, char c)
+static int	len(const char *str, char c)
 {
 	int	i;
 
 	i = 0;
-	while (str[i] && ft_div(str[i], c) == 0)
+	while (str[i] != c && str[i])
 		i++;
 	return (i);
 }
 
-int	ft_size(const char *s, char c)
+static int	ft_size(const char *s, char c)
 {
 	int	i;
-	int	j;
+	int	words;
 
 	i = 0;
-	j = 0;
-	while (*s)
+	words = 0;
+	while (s[i])
 	{
-		if (ft_div (*s, c) == 1)
-			s++;
-		i = len(s, c);
-		s = s + i;
-		if (i)
-			j++;
-	}
-	return (j);
-}
-
-char	*my_strcpy(const char *str, int n)
-{
-	char	*dest;
-	int		i;
-
-	dest = malloc((n + 1) * sizeof(char));
-	i = 0;
-	if (!dest)
-		return (0);
-	while (i < n && str[i])
-	{
-		dest[i] = str[i];
+		if (s[i] != c && (s[i + 1] == c || !s[i + 1]))
+			words++;
 		i++;
 	}
-	dest[i] = 0;
-	return (dest);
+	return (words);
+}
+
+static char	**my_free_split(char **split)
+{
+	int	i;
+
+	i = -1;
+	while (split[++i])
+		free(split[i]);
+	free(split);
+	return (NULL);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	int		i;
 	int		j;
-	int		size;
+	char	*s_cpy;
 	char	**dest;
 
-	i = 0;
 	j = 0;
+	s_cpy = (char *)s;
 	if (s == NULL)
 		return (NULL);
-	size = ft_size(s, c);
-	dest = malloc((size + 1) * sizeof(char *));
+	dest = malloc((ft_size(s, c) + 1) * sizeof(char *));
 	if (!dest)
 		return (NULL);
-	while (j < size)
+	while (j < ft_size(s, c) && s_cpy)
 	{
-		while (ft_div(*s, c))
-			s++;
-		i = len(s, c);
-		dest[j] = my_strcpy(s, i);
-		s = s + i;
+		while (*s_cpy == c)
+			s_cpy++;
+		dest[j] = malloc((len(s_cpy, c) + 1) * sizeof(char));
+		if (!dest[j])
+			return (my_free_split(dest));
+		ft_strlcpy(dest[j], s_cpy, len(s_cpy, c) + 1);
+		s_cpy += len(s_cpy, c) + 1;
 		j++;
 	}
-	dest[size] = 0;
+	dest[j] = NULL;
 	return (dest);
 }
 /*int	main()

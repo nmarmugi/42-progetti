@@ -6,7 +6,7 @@
 #    By: nmarmugi <nmarmugi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/22 12:23:13 by nmarmugi          #+#    #+#              #
-#    Updated: 2024/01/04 12:48:14 by nmarmugi         ###   ########.fr        #
+#    Updated: 2024/01/08 16:05:23 by nmarmugi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,28 +50,27 @@ SRCS =	ft_atoi.c \
 		
 OBJS = $(SRCS:.c=.o)
 
-BONUS = ft_lstadd_back.c \
-	ft_lstadd_front.c \
-	ft_lstclear.c \
-	ft_lstdelone.c \
-	ft_lstiter.c \
-	ft_lstlast.c \
-	ft_lstmap.c \
-	ft_lstnew.c \
-	ft_lstsize.c \
+BONUS = ft_lstadd_back_bonus.c \
+	ft_lstadd_front_bonus.c \
+	ft_lstclear_bonus.c \
+	ft_lstdelone_bonus.c \
+	ft_lstiter_bonus.c \
+	ft_lstlast_bonus.c \
+	ft_lstmap_bonus.c \
+	ft_lstnew_bonus.c \
+	ft_lstsize_bonus.c \
 
 BONUS_OBJS = $(BONUS:.c=.o)
 
 HDRS =	libft.h
+
 FLAGS = -Wall -Wextra -Werror
 $(NAME):
-		gcc -c $(HDRS) $(FLAGS) $(SRCS)
+		cc -c $(HDRS) $(FLAGS) $(SRCS)
 		ar rc $(NAME) $(OBJS)
-		ranlib $(NAME)
 bonus:
-		gcc -c $(HDRS) $(FLAGS) $(BONUS)
+		cc -c $(HDRS) $(FLAGS) $(BONUS)
 		ar rc $(NAME) $(BONUS_OBJS)
-		ranlib $(NAME)
 all:		$(NAME)
 clean:
 			rm -f $(OBJS) $(BONUS_OBJS)

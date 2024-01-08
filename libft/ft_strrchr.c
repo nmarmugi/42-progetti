@@ -6,7 +6,7 @@
 /*   By: nmarmugi <nmarmugi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 13:07:34 by nmarmugi          #+#    #+#             */
-/*   Updated: 2023/12/22 11:32:51 by nmarmugi         ###   ########.fr       */
+/*   Updated: 2024/01/08 14:52:37 by nmarmugi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,18 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	const char	*ultima_occorrenza;
+	const char	*last;
 
-	ultima_occorrenza = NULL;
+	last = NULL;
 	while (*s)
 	{
 		if (*s == (char)c)
-			ultima_occorrenza = s;
+			last = s;
 		s++;
 	}
 	if ((char)c == '\0')
 		return ((char *)s);
-	return ((char *)ultima_occorrenza);
+	return ((char *)last);
 }
 /*int	main()
 {

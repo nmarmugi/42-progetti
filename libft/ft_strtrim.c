@@ -6,7 +6,7 @@
 /*   By: nmarmugi <nmarmugi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 12:21:22 by nmarmugi          #+#    #+#             */
-/*   Updated: 2024/01/02 14:42:47 by nmarmugi         ###   ########.fr       */
+/*   Updated: 2024/01/08 14:53:03 by nmarmugi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	start;
 	size_t	end;
-	char	*risultato;
+	char	*result;
 
 	start = 0;
 	end = ft_strlen(s1);
@@ -39,16 +39,16 @@ char	*ft_strtrim(char const *s1, char const *set)
 		start++;
 	if (start == ft_strlen(s1))
 	{
-		risultato = ft_strdup("");
-		if (risultato == NULL)
+		result = ft_strdup("");
+		if (result == NULL)
 			return (NULL);
 		else
-			return (risultato);
+			return (result);
 	}
 	while (is_in_set(s1[end - 1], set) == 0)
 		end--;
-	risultato = ft_substr(s1, start, end - start);
-	return (risultato);
+	result = ft_substr(s1, start, end - start);
+	return (result);
 }
 /*int	main()
 {

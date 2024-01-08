@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nmarmugi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: nmarmugi <nmarmugi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 15:19:17 by nmarmugi          #+#    #+#             */
-/*   Updated: 2023/12/20 15:19:21 by nmarmugi         ###   ########.fr       */
+/*   Updated: 2024/01/08 14:41:23 by nmarmugi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,18 @@
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {
-	size_t	dimensione_totale;
+	size_t	tot_size;
 	void	*ptr;
 	size_t	i;
 
 	i = 0;
-	dimensione_totale = nmemb * size;
-	ptr = malloc(dimensione_totale);
-	if (nmemb != 0 && dimensione_totale / nmemb != size)
+	tot_size = nmemb * size;
+	ptr = malloc(tot_size);
+	if (nmemb != 0 && tot_size / nmemb != size)
 		return (NULL);
 	if (ptr != NULL)
 	{
-		while (i < dimensione_totale)
+		while (i < tot_size)
 		{
 			((char *)ptr)[i] = 0;
 			i++;
