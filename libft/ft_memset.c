@@ -6,7 +6,7 @@
 /*   By: nmarmugi <nmarmugi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 12:00:34 by nmarmugi          #+#    #+#             */
-/*   Updated: 2024/01/04 15:14:52 by nmarmugi         ###   ########.fr       */
+/*   Updated: 2024/01/08 21:20:11 by nmarmugi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 void	*ft_memset(void *s, int c, size_t n)
 {
-	char	*p;
+	char	*ptr;
 	size_t	i;
 
 	i = 0;
-	p = (char *)s;
+	ptr = (char *)s;
 	while (i < n)
 	{
-		p[i] = c;
+		ptr[i] = c;
 		i++;
 	}
-	return (p);
+	return (ptr);
 }
 /*int	main(void)
 {
