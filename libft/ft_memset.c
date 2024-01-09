@@ -28,11 +28,11 @@ void	*ft_memset(void *s, int c, size_t n)
 }
 /*int	main(void)
 {
-	char	str[15] = "Hello, World!";
-	size_t	len = strlen(str);
-
-	printf("Stringa origine: %s\n", str);
-	ft_memset(str, 'X', 5);
-	printf("Stringa modificata: %s\n", str);
-	return 0;
+	char	str[] = "Ciao mamma";;
+	int	c;
+	 
+	c = 'X';
+	ft_memset(str, c, 4);
+	printf("%s\n", str);
+	return (0);
 }*/

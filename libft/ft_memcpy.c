@@ -32,12 +32,10 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 }
 /*int	main()
 {
-	char	src[] = "Hello, World!";
-	char	dest[50];
-
-	ft_memcpy(dest, src, 13);
-	printf("src: %s\n", src);
-	printf("dest: %s\n", dest);
-
-	return 0;
+	const char	src[] = "Ciao mamma";
+	char	dest[] = "     papà";
+	
+	ft_memcpy(dest, src, 4);
+	printf("%s\n", dest);
+	return (0);
 }*/

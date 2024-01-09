@@ -40,14 +40,14 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 /*int	main() {
 	char	dest[20] = "Hello, ";
 	const char	*src = "World!";
-	size_t	size = sizeof(dest) / sizeof(dest[0]);
+	size_t	size = sizeof(dest) + 1;
 
 	printf("Stringa di destinazione originale: %s\n", dest);
 	printf("Stringa di origine: %s\n", src);
 
 	size_t risultato = ft_strlcat(dest, src, size);
 
-	printf("Risultato di ft_strlcat: %zu\n", risultato);
+	printf("Risultato di ft_strlcat: %ld\n", risultato);
 	printf("Stringa di destinazione dopo l'operazione: %s\n", dest);
 	return 0;
 }*/

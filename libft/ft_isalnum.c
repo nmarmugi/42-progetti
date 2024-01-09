@@ -21,12 +21,12 @@ int	ft_isalnum(int c)
 }
 /*int	main()
 {
-	char	test_char;
+	int	c;
 	
-	test_char = 'a';
-	if (ft_isalnum(test_char))
-		printf("%c è alfanumerico: vero\n", test_char);
+	c = 'u';
+	if (ft_isalnum(c) == 1)
+		write (1, "1\n", 2);
 	else
-		printf("%c è alfanumerico: falso\n", test_char);
-	return 0;
+		write (1, "0\n", 2);
+	return (0);
 }*/

@@ -14,7 +14,7 @@
 
 size_t	ft_strlen(const char *str)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (str[i] != '\0')
@@ -23,12 +23,10 @@ size_t	ft_strlen(const char *str)
 }
 /*int	main() 
 {
-	const char	*string = "Hello, World!";
-
-	size_t	lunghezza = ft_strlen(string);
-
-	printf("Stringa: %s\n", string);
-	printf("Lunghezza della stringa: %zu\n", lunghezza);
-
-	return 0;
+	const char	str[] = "Ciao mamma";
+	int	i;
+	
+	i = ft_strlen(str);
+	printf("%d\n", i);
+	return (0);
 }*/

@@ -21,12 +21,12 @@ int	ft_isalpha(int c)
 }
 /*int	main()
 {
-	char	test_char;
+	int	c;
 	
-	test_char = '0';
-	if (ft_isalpha(test_char))
-		printf("%c è alfabetico: vero\n", test_char);
+	c = '0';
+	if (ft_isalpha(c) == 1)
+		write (1, "1\n", 2);
 	else
-		printf("%c è alfabetico: falso\n", test_char);
-	return 0;
+		write (1, "0\n", 2);
+	return (0);
 }*/

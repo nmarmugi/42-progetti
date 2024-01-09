@@ -21,12 +21,12 @@ int	ft_isascii(int c)
 }
 /*int	main()
 {
-	char	test_char;
+	int	c;
 	
-	test_char = '0';
-	if (ft_isascii(test_char))
-		printf("%c è ascii: vero\n", test_char);
+	c = '/';
+	if (ft_isascii(c) == 1)
+		write (1, "1\n", 2);
 	else
-		printf("%c è ascii: falso\n", test_char);
-	return 0;
+		write (1, "0\n", 2);
+	return (0);
 }*/

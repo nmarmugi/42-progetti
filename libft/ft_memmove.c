@@ -39,8 +39,8 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 }
 /*int	main()
 {
-	char	str[] = "Hello, World!";
-	char	dest[50];
+	const char	str[] = "Hello, World!";
+	char	dest[] = "Ciaao, mamma!";
 
 	ft_memmove(dest, str, 6);
 	printf("src: %s\n", str);

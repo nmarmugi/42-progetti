@@ -32,15 +32,16 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 		len_src++;
 	return (len_src + i);
 }
-/*int	main() {
-	char	dest[20];
-	const char	*src = "Hello, World!";
-
-	size_t	risultato = ft_strlcpy(dest, src, sizeof(dest) / sizeof(dest[0]));
-
+/*int	main()
+{
+	const char	src[] = "Ciao mamma";
+	char	dest[15];
 	printf("Stringa di origine: %s\n", src);
+	size_t	lunghezza_src;
+	lunghezza_src = sizeof(src) - 1;
+	printf("Lunghezza della stringa di origine: %ld\n", lunghezza_src);
+	lunghezza_src = ft_strlcpy(dest, src, sizeof(src));
 	printf("Stringa di destinazione dopo ft_strlcpy: %s\n", dest);
-	printf("Lunghezza totale della stringa di origine: %zu\n", risultato);
-
-	return 0;
+	printf("Lunghezza della stringa di origine: %ld\n", lunghezza_src);
+	return (0);
 }*/

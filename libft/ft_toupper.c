@@ -15,18 +15,15 @@
 int	ft_toupper(int c)
 {
 	if (c >= 97 && c <= 122)
-		return (c - 97 + 65);
+		return (c - 32);
 	else
 		return (c);
 }
 /*int	main()
 {
-	int	uppercase_char = 'C';
-	int	lowercase_char = 'z';
-
-	printf("Carattere: %c\n", (char)lowercase_char);
-	printf("Convertito in maiuscolo: %c\n", (char)ft_toupper(lowercase_char));
-	printf("\nCarattere: %c\n", (char)uppercase_char);
-	printf("Convertito in maiuscolo: %c\n", (char)ft_toupper(uppercase_char));
-	return 0;
+	int	c;
+	
+	c = 'A';
+	printf("%c\n", (char)ft_toupper(c));
+	return (0);
 }*/

@@ -21,12 +21,12 @@ int	ft_isdigit(int c)
 }
 /*int	main()
 {
-	char	test_char;
+	int	c;
 	
-	test_char = '0';
-	if (ft_isdigit(test_char))
-		printf("%c è numerico: vero\n", test_char);
+	c = 'o';
+	if (ft_isdigit(c) == 1)
+		write (1, "1\n", 2);
 	else
-		printf("%c è numerico: falso\n", test_char);
-	return 0;
+		write (1, "0\n", 2);
+	return (0);
 }*/
