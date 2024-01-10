@@ -36,12 +36,13 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
 	const char	src[] = "Ciao mamma";
 	char	dest[15];
-	printf("Stringa di origine: %s\n", src);
-	size_t	lunghezza_src;
-	lunghezza_src = sizeof(src) - 1;
-	printf("Lunghezza della stringa di origine: %ld\n", lunghezza_src);
-	lunghezza_src = ft_strlcpy(dest, src, sizeof(src));
-	printf("Stringa di destinazione dopo ft_strlcpy: %s\n", dest);
-	printf("Lunghezza della stringa di origine: %ld\n", lunghezza_src);
+	size_t	len_src;
+	len_src = sizeof(src);
+	printf("Src: %s\n", src);
+	printf("Dest: %s\n", dest);
+	ft_strlcpy(dest, src, len_src);
+	printf("Src dopo: %s\n", src);
+	printf("Dest dopo: %s\n", dest);
+	printf("Lunghezza src: %ld\n", len_src);
 	return (0);
 }*/

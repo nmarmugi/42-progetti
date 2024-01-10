@@ -37,17 +37,15 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 		dlen = size;
 	return (dlen + slen);
 }
-/*int	main() {
-	char	dest[20] = "Hello, ";
-	const char	*src = "World!";
-	size_t	size = sizeof(dest) + 1;
-
-	printf("Stringa di destinazione originale: %s\n", dest);
-	printf("Stringa di origine: %s\n", src);
-
-	size_t risultato = ft_strlcat(dest, src, size);
-
-	printf("Risultato di ft_strlcat: %ld\n", risultato);
-	printf("Stringa di destinazione dopo l'operazione: %s\n", dest);
-	return 0;
+/*int	main()
+{
+	const char	src[] = " guarda come mi diverto";
+	char	dest[35] = "Ciao mamma";
+	size_t	len_dest = sizeof(dest);
+	printf("Src: %s\n", src);
+	printf("Dest: %s\n", dest);
+	printf("Lunghezza dest: %ld\n", ft_strlcat(dest, src, len_dest));
+	printf("Src dopo: %s\n", src);
+	printf("Dest dopo: %s\n", dest);
+	return (0);
 }*/

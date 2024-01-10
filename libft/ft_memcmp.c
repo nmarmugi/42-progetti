@@ -31,12 +31,13 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 }
 /*int	main()
 {
-	char	str1[] = "Hello, World!";
-	char	str2[] = "Hello, World";
-	int	risultato = ft_memcmp(str1, str2, 13);
+	char	s1[] = "Ciao mamma";
+	char	s2[] = "Ciao papà";
+	size_t	n = 6;
+	int	risultato = ft_memcmp(s1, s2, n);
 	if (risultato == 0)
-		printf("Le prime 13 posizioni di str1 e str2 sono uguali.\n");
+		printf("Le aree di memoria sono uguali\n");
 	else
-		printf("Le prime 13 posizioni di str1 e str2 sono diverse.\n");
-	return 0;
+		printf("In %ld byte le aree di memoria sono diverse\n", n);
+	return (0);
 }*/

@@ -25,14 +25,18 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 }
 /*int	main()
 {
-	const char	*string1 = "Hello, World!";
-	const char	*string2 = "Hello, Universe!";
-	size_t	n = 7;
-
-	int	risultato = ft_strncmp(string1, string2, n);
-
-	printf("Stringa 1: %s\n", string1);
-	printf("Stringa 2: %s\n", string2);
-	printf("Confronto (prime %zu caratteri): %d\n", n, risultato);
-	return 0;
+	const char	str1[] = "Ciao";
+	const char	str2[] = "mamma";
+	size_t	n = 2;
+	int	risultato = ft_strncmp(str1, str2, n);
+	if (n == 0)
+		printf("Non ho eseguito il controllo\n");
+	else
+	{
+		if (risultato == 0)
+			printf("I primi %ld caratteri sono uguali\n", n);
+		else
+			printf("I primi %ld caratteri sono diversi\n", n);
+	}
+	return (0);
 }*/

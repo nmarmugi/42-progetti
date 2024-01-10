@@ -26,14 +26,16 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	else
 		return (NULL);
 }
-/*int	main() {
-	char	str[] = "Hello, World!";
-	char	ch = 'z';
-	void	*risultato = ft_memchr(str, ch, ft_strlen(str));
-
-	if (risultato != NULL)
-		printf("Il carattere '%c' è all'indirizzo: %p\n", ch, risultato);
+/*int	main()
+{
+	char	ptr[] = "Ciao mamma";
+	int	carattere = 'm';
+	size_t	n = 9;
+	void	*risultato = ft_memchr(ptr, carattere, n);
+	size_t	posizione = risultato - (void *)ptr;
+	if (risultato == NULL)
+		printf("Non ho trovato %c, in %ld byte di ptr\n", carattere, n);
 	else
-		printf("Il carattere '%c' non è stato trovato nella stringa.\n", ch);
-	return 0;
+		printf("%c è in posizione %ld\n", carattere, posizione);
+	return (0);
 }*/

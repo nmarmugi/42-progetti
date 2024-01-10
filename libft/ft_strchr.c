@@ -31,14 +31,15 @@ char	*ft_strchr(const char *s, int c)
 }
 /*int	main()
 {
-	const char	*str = "Hello, World!";
-	int	carattere = '\0';
-
+	const char	str[] = "Ciao mamma";
+	int	carattere = 'm';
+	printf("%s\n", str);
+	printf("%c è da trovare\n", carattere);
 	char	*risultato = ft_strchr(str, carattere);
-	
-	if (risultato != NULL)
-		printf("'%c' è in posizione %ld.\n", carattere, risultato - str);
+	size_t	posizione = risultato - str;
+	if (risultato == NULL)
+		printf("Il carattere non è stato trovato\n");
 	else
-		printf("'%c' non è stato trovato nella stringa.\n", carattere);
-	return 0;
+		printf("%c è in posizione %ld\n", carattere, posizione);
+	return (0);
 }*/

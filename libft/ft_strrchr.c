@@ -29,12 +29,15 @@ char	*ft_strrchr(const char *s, int c)
 }
 /*int	main()
 {
-	const char	*string = "Hello, World!";
-	char	carattere = 'o';
-
-	char	*risultato = strrchr(string, carattere);
-
-	printf("Stringa: %s\n", string);
-	printf("'%c'. Risultato dopo strrchr: %s\n", carattere, risultato);
-	return 0;
+	const char	str[] = "Ciao mamma";
+	int	carattere = 'a';
+	printf("%s\n", str);
+	printf("Il carattere è: %c\n", carattere);
+	char	*risultato = ft_strrchr(str, carattere);
+	size_t	posizione = risultato - str;
+	if (risultato == NULL)
+		printf("Il carattere non è stato trovato\n");
+	else
+		printf("%c è in posizione %ld\n", carattere, posizione);
+	return (0);
 }*/

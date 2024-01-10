@@ -36,8 +36,8 @@ int	ft_atoi(const char *nptr)
 }
 /*int main() 
 {
-    const char *str = "   -0";
-    int num = ft_atoi(str);
-    printf("Result: %d\n", num);
-    return 0;
+	const char	nptr[] = "  	-8929hs";
+	int	risultato = ft_atoi(nptr);
+	printf("Il char convertito ad int è: %d\n", risultato);
+	return (0);
 }*/

@@ -32,17 +32,14 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 }
 /*int	main()
 {
-	const char	*string1 = "Hello, World!";
-	const char	*string2 = "World";
-	size_t	n = 13;
-
-	char	*risultato = ft_strnstr(string1, string2, n);
-
-	printf("Stringa 1: %s\n", string1);
-	printf("Sottostringa da cercare: %s\n", string2);
-	if (risultato != NULL)
-		printf("Sottostringa trovata: %s\n", risultato);
+	const char	str[] = "Ciao mamma";
+	const char	sott_str[] = "mamma";
+	size_t	len = 11;
+	char	*risultato = ft_strnstr(str, sott_str, len);
+	size_t	posizione = risultato - str;
+	if (risultato == NULL)
+		printf("Non ho trovato la sottostringa\n");
 	else
-		printf("Sottostringa non trovata.\n");
-	return 0;
+		printf("Ho trovato %s, in posizione %ld\n", sott_str, posizione);
+	return (0);
 }*/
