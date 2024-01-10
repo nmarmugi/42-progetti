@@ -33,17 +33,21 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	}
 	return (ptr);
 }
-/*int	main() {
-
-	int	*arr = (int *)ft_calloc(3, sizeof(int));
-
-	if (arr != NULL)
+/*int	main()
+{
+	size_t	nmemb = 5;
+	size_t	size = sizeof(int);
+	int	*array = (int *)ft_calloc(nmemb, size);
+	if (array != NULL)
 	{
-		printf("Memoria allocata con successo.\n");
-		for (size_t i = 0; i < 3; i++)
-			printf("%d ", arr[i]);
-		printf("\n");
-		free(arr);
+		printf("Memoria allocata e inizializzata con zeri:\n");
+		size_t	i = 0;
+		while (i < nmemb)
+		{
+			printf("array[%d] = %d\n", (int)i, array[i]);
+			i++;
+		}
+		free(array);
 	}
-	return 0;
+	return (0);
 }*/

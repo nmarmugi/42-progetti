@@ -38,17 +38,11 @@ char	*ft_strdup(const char *s)
 }
 /*int	main()
 {
-	const char	*src = "Hello, World!";
-
-	char	*dest = ft_strdup(src);
-
-	if (dest != NULL)
-	{
-		printf("Stringa originale: %s\n", src);
-		printf("Stringa duplicata: %s\n", dest);
-		free(dest);
-	}
-	else
-		printf("Errore durante l'allocazione della memoria.\n");
+	const char	s[] = "Ciao mamma";
+	char	*risultato;
+	printf("%s\n", s);
+	risultato = ft_strdup(s);
+	printf("Dopo strdup ecco la copia: %s\n", risultato);
+	free(risultato);
 	return (0);
 }*/
