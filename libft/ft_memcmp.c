@@ -31,6 +31,7 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 }
 /*int	main()
 {
+// Compara il contenuto di due blocchi di memoria per n dimensione
 	char	s1[] = "Ciao mamma";
 	char	s2[] = "Ciao papà";
 	size_t	n = 6;

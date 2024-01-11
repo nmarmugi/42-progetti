@@ -39,18 +39,16 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 }
 /*int	main() 
 {
-	const char	*input_string = "Esempio di sottostringa";
-	unsigned int	start_index = 0;
-	size_t	substring_length = 7;
-
-	char	*result = ft_substr(input_string, start_index, substring_length);
-
-	if (result != NULL) 
-	{
-		printf("Sottostringa: %s\n", result);
-		free(result);
-	} 
-	else 
-		printf("Errore nell'allocazione di memoria.\n");
-	return 0;
+// Prende una sottostringa da una stringa, specificando uno start e lunghezza
+// della sottostringa desiderata
+	char const	s[] = "Ciao mamma";
+	unsigned int	start = 0;
+	size_t	len_sub = 4;
+	char	*risultato = ft_substr(s, start, len_sub);
+	if (ft_strlen(s) <= start)
+		printf("%s: stringa vuota", risultato);
+	if (*risultato)
+		printf("%s: risultato dopo substr\n",  risultato);
+	free(risultato);
+	return (0);
 }*/

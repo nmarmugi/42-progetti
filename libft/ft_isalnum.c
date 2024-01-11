@@ -21,6 +21,7 @@ int	ft_isalnum(int c)
 }
 /*int	main()
 {
+// Vede se è un valore alfanumerico
 	int	c;
 	
 	c = 'u';

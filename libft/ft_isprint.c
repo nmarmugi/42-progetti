@@ -21,6 +21,7 @@ int	ft_isprint(int c)
 }
 /*int	main()
 {
+// Vede se è un valore stampabile
 	int	c;
 	
 	c = ' ';

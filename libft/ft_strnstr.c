@@ -32,6 +32,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 }
 /*int	main()
 {
+// Cerca la prima occorrenza di una sottostringa in ua stringa
 	const char	str[] = "Ciao mamma";
 	const char	sott_str[] = "mamma";
 	size_t	len = 11;

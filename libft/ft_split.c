@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-static int	len(const char *str, char c)
+static int	ft_len(const char *str, char c)
 {
 	int	i;
 
@@ -38,7 +38,7 @@ static int	ft_size(const char *s, char c)
 	return (words);
 }
 
-static char	**my_free_split(char **split)
+static char	**ft_my_free_split(char **split)
 {
 	int	i;
 
@@ -66,11 +66,11 @@ char	**ft_split(char const *s, char c)
 	{
 		while (*s_cpy == c)
 			s_cpy++;
-		dest[j] = malloc((len(s_cpy, c) + 1) * sizeof(char));
+		dest[j] = malloc((ft_len(s_cpy, c) + 1) * sizeof(char));
 		if (!dest[j])
-			return (my_free_split(dest));
-		ft_strlcpy(dest[j], s_cpy, len(s_cpy, c) + 1);
-		s_cpy += len(s_cpy, c) + 1;
+			return (ft_my_free_split(dest));
+		ft_strlcpy(dest[j], s_cpy, ft_len(s_cpy, c) + 1);
+		s_cpy += ft_len(s_cpy, c) + 1;
 		j++;
 	}
 	dest[j] = NULL;
@@ -78,16 +78,10 @@ char	**ft_split(char const *s, char c)
 }
 /*int	main()
 {
-	char	str[] = "Hello,world;this,is;a,test";
-	
+// Divide una stringa passata, in più stringhe, allocando memoria per esse
+// La divide grazie a un char passato
+	char	str[] = "Ciao,mamma;guard,come;mi,diverto";
 	char	**risultato = ft_split(str, ',');
-
-	if (risultato == NULL)
-	{
-		fprintf(stderr, "Errore nell'allocazione di memoria\n");
-		return 1;
-	}
-
 	int	i = 0;
 	while (risultato[i] != NULL)
 	{
@@ -96,6 +90,5 @@ char	**ft_split(char const *s, char c)
 		i++;
 	}
 	free(risultato);
-
-	return 0;
+	return (0);
 }*/

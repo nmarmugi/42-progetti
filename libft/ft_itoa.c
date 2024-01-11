@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-static int	f_size(int n)
+static int	ft_size(int n)
 {
 	int	size;
 
@@ -27,7 +27,7 @@ static int	f_size(int n)
 	return (size);
 }
 
-static void	full_result(int size, int offset, int n, char *result)
+static void	ft_full_result(int size, int offset, int n, char *result)
 {
 	while (size > offset)
 	{
@@ -44,7 +44,7 @@ char	*ft_itoa(int n)
 	char	*result;
 
 	offset = 0;
-	size = f_size(n);
+	size = ft_size(n);
 	result = (char *)malloc(sizeof(char) * size + 1);
 	if (!(result))
 		return (0);
@@ -61,17 +61,18 @@ char	*ft_itoa(int n)
 		offset = 1;
 		n = -n;
 	}
-	full_result(size, offset, n, result);
+	ft_full_result(size, offset, n, result);
 	result[size] = '\0';
 	return (result);
 }
 /*int	main()
 {
+// Da int a char
 	int num = -9;
 
-	char *str = ft_itoa(num);
+	char *risultato = ft_itoa(num);
 
 	printf("Numero intero: %d\n", num);
-	printf("Rappresentazione come stringa: %s\n", str);
-	return 0;
+	printf("Rappresentazione come stringa: %s\n", risultato);
+	return (0);
 }*/

@@ -28,6 +28,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 }
 /*int	main()
 {
+// Cerca la prima occorenza c in una parte della memoria
 	char	ptr[] = "Ciao mamma";
 	int	carattere = 'm';
 	size_t	n = 9;

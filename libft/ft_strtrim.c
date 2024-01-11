@@ -12,13 +12,13 @@
 
 #include "libft.h"
 
-static int	is_in_set(char c, const char *set)
+static int	ft_is_in_str(char c, const char *str)
 {
-	while (*set)
+	while (*str)
 	{
-		if (*set == c)
+		if (*str == c)
 			return (0);
-		set++;
+		str++;
 	}
 	return (1);
 }
@@ -35,7 +35,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 		return (NULL);
 	if (!set)
 		return (ft_strdup(s1));
-	while (is_in_set(s1[start], set) == 0)
+	while (ft_is_in_str(s1[start], set) == 0)
 		start++;
 	if (start == ft_strlen(s1))
 	{
@@ -45,25 +45,18 @@ char	*ft_strtrim(char const *s1, char const *set)
 		else
 			return (result);
 	}
-	while (is_in_set(s1[end - 1], set) == 0)
+	while (ft_is_in_str(s1[end - 1], set) == 0)
 		end--;
 	result = ft_substr(s1, start, end - start);
 	return (result);
 }
 /*int	main()
 {
-	const char	*input_string = "   ***Hello, World!***   ";
-	const char	*set_of_chars = " *!";
-
-	char	*trimmed_string = ft_strtrim(input_string, set_of_chars);
-
-	if (trimmed_string != NULL)
-	{
-		printf("Stringa originale: \"%s\"\n", input_string);
-		printf("Stringa dopo la rimozione: \"%s\"\n", trimmed_string);
-		free(trimmed_string);
-	} 
-	else
-		printf("Errore nell'allocazione di memoria.\n");
-	return 0;
+// Rimuove caratteri specificati all'inizio e alla fine di una stringa
+	char	s1[] = "  Ciao mamma  ";
+	char	set[] = " Ca";
+	char	*risultato = ft_strtrim(s1, set);
+	printf("%s, risultato dopo strtrim\n", risultato);
+	free(risultato);
+	return (0);
 }*/

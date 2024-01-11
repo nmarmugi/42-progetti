@@ -21,6 +21,8 @@ int	ft_toupper(int c)
 }
 /*int	main()
 {
+// Cambia da minuscole a maiuscole e non varia le minuscole di una stringa
+// passata
 	int	c;
 	
 	c = 'A';

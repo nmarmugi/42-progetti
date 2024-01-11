@@ -28,6 +28,7 @@ void	*ft_memset(void *s, int c, size_t n)
 }
 /*int	main(void)
 {
+// Setta n byte di memoria a un valore specificato
 	char	str[] = "Ciao mamma";;
 	int	c;
 	 

@@ -34,6 +34,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 }
 /*int	main()
 {
+// Copia una stringa in un'altra con una dimensione specificata
 	const char	src[] = "Ciao mamma";
 	char	dest[15];
 	size_t	len_src;

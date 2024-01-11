@@ -39,6 +39,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 }
 /*int	main()
 {
+// Fa la stessa cosa di memcpy ma considerando la sovrapposizione tra le due
 	const char	str[] = "Hello, World!";
 	char	dest[] = "Ciaao, mamma!";
 

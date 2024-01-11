@@ -31,6 +31,7 @@ char	*ft_strchr(const char *s, int c)
 }
 /*int	main()
 {
+// Cerca la prima occorrenza di un carattere specificato in una stringa
 	const char	str[] = "Ciao mamma";
 	int	carattere = 'm';
 	printf("%s\n", str);

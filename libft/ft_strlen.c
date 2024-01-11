@@ -23,6 +23,7 @@ size_t	ft_strlen(const char *str)
 }
 /*int	main() 
 {
+// Conta il numero di caratteri di una stringa prima del \0
 	const char	str[] = "Ciao mamma";
 	int	i;
 	

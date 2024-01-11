@@ -32,6 +32,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 }
 /*int	main()
 {
+// Copia n byte da una memoria a un'altra
 	const char	src[] = "Ciao mamma";
 	char	dest[] = "     papà";
 	

@@ -21,6 +21,8 @@ int	ft_tolower(int c)
 }
 /*int	main()
 {
+// Cambia da maiuscolo a minuscolo e lascia invariate le maiuscole di una stringa
+// passata
 	int	c;
 	
 	c = 'Z';

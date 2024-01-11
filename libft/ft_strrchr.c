@@ -29,6 +29,7 @@ char	*ft_strrchr(const char *s, int c)
 }
 /*int	main()
 {
+// Cerca l'ultima occorrenza di un carattere specifico in una stringa
 	const char	str[] = "Ciao mamma";
 	int	carattere = 'a';
 	printf("%s\n", str);

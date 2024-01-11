@@ -38,6 +38,7 @@ char	*ft_strdup(const char *s)
 }
 /*int	main()
 {
+// Crea una copia, allocandole memoria, di una stringa 
 	const char	s[] = "Ciao mamma";
 	char	*risultato;
 	printf("%s\n", s);

@@ -21,6 +21,7 @@ int	ft_isalpha(int c)
 }
 /*int	main()
 {
+// Vede se è un valore alfabetico
 	int	c;
 	
 	c = '0';

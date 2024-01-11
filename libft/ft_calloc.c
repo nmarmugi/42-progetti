@@ -35,6 +35,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 }
 /*int	main()
 {
+// Alloca memoria per tot elementi, dopo azzera
 	size_t	nmemb = 5;
 	size_t	size = sizeof(int);
 	int	*array = (int *)ft_calloc(nmemb, size);

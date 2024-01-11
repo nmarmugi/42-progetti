@@ -21,6 +21,7 @@ int	ft_isascii(int c)
 }
 /*int	main()
 {
+// Vede se è un valore ascii
 	int	c;
 	
 	c = '/';

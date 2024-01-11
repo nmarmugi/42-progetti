@@ -21,6 +21,7 @@ int	ft_isdigit(int c)
 }
 /*int	main()
 {
+// Vede se è un valore numerico
 	int	c;
 	
 	c = 'o';

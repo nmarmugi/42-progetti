@@ -39,6 +39,8 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 }
 /*int	main()
 {
+// Concatena due stringhe ma limita la lunghezza totale delle due per evitare
+// overflow
 	const char	src[] = " guarda come mi diverto";
 	char	dest[35] = "Ciao mamma";
 	size_t	len_dest = sizeof(dest);

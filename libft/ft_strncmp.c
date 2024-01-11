@@ -25,6 +25,7 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 }
 /*int	main()
 {
+// Confronta i primi n caratteri di due stringhe
 	const char	str1[] = "Ciao";
 	const char	str2[] = "mamma";
 	size_t	n = 2;

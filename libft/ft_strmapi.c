@@ -35,3 +35,29 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	result[len] = '\0';
 	return (result);
 }
+/*char	ft_upper(unsigned int i, char c)
+{
+	char	risultato;
+
+	if (i % 2 == 0)
+		risultato = c;
+	else
+	{
+		if (c >= 97 && c <= 122)
+			risultato = c - 32;
+		else
+			risultato = c;
+	}
+	return (risultato);
+}
+int	main()
+{
+// Applica una funzione a ogni carattere di una stringa, passando sia
+// il carattere che l'indice del carattere alla funzione
+	char const	s[] = "ciao mamma";
+	char	*risultato = ft_strmapi(s, &ft_upper);
+	printf("%s: stringa passata\n", s);
+	printf("%s: dopo strmapi\n", risultato);
+	free(risultato);
+	return (0);
+}*/

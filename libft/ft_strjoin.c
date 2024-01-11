@@ -38,17 +38,15 @@ char	*ft_strjoin(const char *s1, const char *s2)
 }
 /*int	main() 
 {
-	const char	*string1 = "Hello, ";
-	const char	*string2 = "world!";
-
-	char	*result = ft_strjoin(string1, string2);
-
-	if (result != NULL)
-	{
-		printf("Stringa concatenata: %s\n", result);
-		free(result);
-	}
-	else
-		printf("Errore nell'allocazione di memoria della stringa.\n");
-	return 0;
+// Concatena due stringhe allocando memoria per un'unica stringa
+// che le contenga entrambe
+	const char	s1[] = "Ciao mamma ";
+	const char	s2[] = "guarda come mi diverto";
+	printf("%s: prima stringa\n", s1);
+	printf("%s: seconda stringa\n", s2);
+	char	*risultato = ft_strjoin(s1, s2);
+	if (*risultato)
+		printf("%s: nuova stringa, %p indirizzo\n", risultato, risultato);
+	free(risultato);
+	return (0);
 }*/
