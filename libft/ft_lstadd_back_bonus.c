@@ -28,14 +28,36 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 }
 /*int	main()
 {
- 	char str3[] = "hgjhgjhg";
- 	char str[] = " ciao sono Paola";
- 	t_list *i = ft_lstnew(str3);
- 	t_list *j = ft_lstnew(str);
- 	t_list *str2 = NULL; //perche' e' l'inizio
- 	ft_lstadd_back (&str2, i);
- 	ft_lstadd_back (&str2, j);
- 	printf("%s", (char *)str2->content);
- 	printf("%s\n", (char *)str2->next->content);
- 	return(0);
+// Aggiunge un nuovo nodo alla fine di una lista concatenata
+	t_list	*nodo1 = ft_lstnew("Primo nodo");
+	t_list	*nodo2 = ft_lstnew("Secondo nodo");
+	t_list	*nodo3 = ft_lstnew("Terzo nodo");
+	
+	t_list	*nuova_lista = NULL;
+	
+	ft_lstadd_back(&nuova_lista, nodo1);
+	ft_lstadd_back(&nuova_lista, nodo2);
+	printf("Lista prima dell'aggiunta:\n");
+	
+	t_list	*lista = nuova_lista;
+	
+	while (lista != NULL)
+	{
+		printf("%s\n", (char *)lista->content);
+		lista = lista->next;
+	}
+	
+	ft_lstadd_back(&nuova_lista, nodo3);
+	
+	printf("Lista dopo l'aggiunta alla fine:\n");
+	
+	while (nuova_lista != NULL)
+	{
+		printf("%s\n", (char *)nuova_lista->content);
+		nuova_lista = nuova_lista->next;
+	}
+	free(nodo1);
+	free(nodo2);
+	free(nodo3);
+	return (0);
 }*/

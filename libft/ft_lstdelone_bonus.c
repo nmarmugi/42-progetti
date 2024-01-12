@@ -19,38 +19,26 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *))
 	del(lst->content);
 	free(lst);
 }
-/*void delete_string(void *content)
+/*void	ft_deal(void *content)
 {
-    free(content);
-}
-void print_string(void *content)
-{
-    printf("%s\n", (char *)content);
+	free(content);
 }
 int main()
 {
-    // Creazione di alcuni nodi per la lista
-    t_list *node1 = ft_lstnew(strdup("Primo nodo"));
-    t_list *node2 = ft_lstnew(strdup("Secondo nodo"));
-    t_list *node3 = ft_lstnew(strdup("Terzo nodo"));
+// Cancella un nodo nella lista
+	char	*str = (char *)malloc(sizeof(char) * 2);
+	if (str == NULL)
+		return (1);
+	str[0] = 'a';
+	str[1] = '\0';
+	t_list	*nodo = ft_lstnew(str);
 
-    // Creazione di una lista vuota
-    t_list *myList = NULL;
-
-    // Aggiunta dei nodi alla lista
-    ft_lstadd_back(&myList, node1);
-    ft_lstadd_back(&myList, node2);
-    ft_lstadd_back(&myList, node3);
-
-    // Uso di ft_lstdelone per eliminare il secondo elemento della lista
-    ft_lstdelone(node2, delete_string);
-
-    // Uso di ft_lstiter per stampare la lista dopo l'eliminazione
-    printf("Lista dopo l'eliminazione:\n");
-    ft_lstiter(myList, print_string);
-
-    // Deallocazione della memoria assegnata ai nodi e alla lista
-    ft_lstclear(&myList, delete_string);
-
-    return 0;
+	if (nodo == NULL)
+	{
+		free(nodo);
+		return (1);
+	}
+	printf("%s\n", (char *)nodo->content);
+	ft_lstdelone(nodo, ft_deal);
+	return (0);
 }*/

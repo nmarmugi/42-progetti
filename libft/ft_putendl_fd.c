@@ -26,13 +26,11 @@ void	ft_putendl_fd(char *s, int fd)
 }
 /*int main(void)
 {
+// Stampa, su un file descriptor, una stringa seguita da un \n 
 	int stdout_fd = 1;
-	char *messaggio = "Ciao, mondo!";
+	char str[] = "Ciao, mamma";
 
-	write(stdout_fd, "Stampa della stringa usando write:\n", 36);
-	write(stdout_fd, messaggio, 12);
-	write(stdout_fd, "\n\n", 2);
 	write(stdout_fd, "Stampa della stringa usando ft_putendl_fd:\n", 44);
-	ft_putendl_fd(messaggio, stdout_fd);
-	return 0;
+	ft_putendl_fd(str, stdout_fd);
+	return (0);
 }*/

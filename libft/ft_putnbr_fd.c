@@ -12,11 +12,6 @@
 
 #include "libft.h"
 
-static void	ft_put_char(char c, int fd)
-{
-	write (fd, &c, 1);
-}
-
 void	ft_putnbr_fd(int n, int fd)
 {
 	if (n == -2147483648)
@@ -28,16 +23,17 @@ void	ft_putnbr_fd(int n, int fd)
 	{
 		if (n < 0)
 		{
-			ft_put_char('-', fd);
+			ft_putchar_fd('-', fd);
 			n = n * -1;
 		}
 		if (n > 9)
 			ft_putnbr_fd(n / 10, fd);
-		ft_put_char((n % 10) + '0', fd);
+		ft_putchar_fd((n % 10) + '0', fd);
 	}
 }
 /*int main(void)
 {
+// Stampa un numero su un file descriptor
 	int stdout_fd = 1;
 
 	write(stdout_fd, "Stampa del numero usando ft_putnbr_fd:\n", 39);
@@ -46,5 +42,5 @@ void	ft_putnbr_fd(int n, int fd)
 	write(stdout_fd, "Stampa del numero negativo usando ft_putnbr_fd:\n", 48);
 	ft_putnbr_fd(-67890, stdout_fd);
 	write(stdout_fd, "\n", 1);
-	return 0;
+	return (0);
 }*/

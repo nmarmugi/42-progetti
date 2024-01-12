@@ -29,45 +29,39 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 	}
 	*lst = NULL;
 }
-/*void delete_string(void *content)
+/*void ft_deal(void *content)
 {
     free(content);
 }
 int main()
 {
-    // Creazione di alcuni nodi per la lista
-    t_list *node1 = ft_lstnew(strdup("Primo nodo"));
-    t_list *node2 = ft_lstnew(strdup("Secondo nodo"));
-    t_list *node3 = ft_lstnew(strdup("Terzo nodo"));
+// Dealloca la lista e il suo contenuto
+	t_list	*nodo1 = ft_lstnew(ft_strdup("Primo nodo"));
+	t_list	*nodo2 = ft_lstnew(ft_strdup("Secondo nodo"));
+	t_list	*nodo3 = ft_lstnew(ft_strdup("Terzo nodo"));
 
-    // Creazione di una lista vuota
-    t_list *myList = NULL;
+	t_list	*nuova_lista = NULL;
 
-    // Aggiunta dei nodi alla lista
-    ft_lstadd_back(&myList, node1);
-    ft_lstadd_back(&myList, node2);
-    ft_lstadd_back(&myList, node3);
+	ft_lstadd_back(&nuova_lista, nodo1);
+	ft_lstadd_back(&nuova_lista, nodo2);
+	ft_lstadd_back(&nuova_lista, nodo3);
 
-    // Stampa della lista prima della deallocazione
-    printf("Lista prima della deallocazione:\n");
-    t_list *current = myList;
-    while (current != NULL)
-    {
-        printf("%s\n", (char *)current->content);
-        current = current->next;
-    }
+	printf("Lista prima:\n");
+	t_list	*lista = nuova_lista;
+	while (lista != NULL)
+	{
+		printf("%s\n", (char *)lista->content);
+		lista = lista->next;
+	}
 
-    // Uso di ft_lstclear per deallocare completamente la lista
-    ft_lstclear(&myList, delete_string);
+	ft_lstclear(&nuova_lista, ft_deal);
 
-    // Stampa della lista dopo la deallocazione (dovrebbe essere vuota)
-    printf("Lista dopo la deallocazione:\n");
-    current = myList;
-    while (current != NULL)
-    {
-        printf("%s\n", (char *)current->content);
-        current = current->next;
-    }
-
-    return 0;
+	printf("Lista dopo:\n");
+	lista = nuova_lista;
+	while (lista != NULL)
+	{
+		printf("%s\n", (char *)lista->content);
+		lista = lista->next;
+	}
+	return (0);
 }*/

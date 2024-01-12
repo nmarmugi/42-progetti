@@ -22,40 +22,25 @@ t_list	*ft_lstlast(t_list *lst)
 }
 /*int main()
 {
-    // Creazione di alcuni nodi per la lista
-    t_list *node1 = (t_list *)malloc(sizeof(t_list));
-    t_list *node2 = (t_list *)malloc(sizeof(t_list));
-    t_list *node3 = (t_list *)malloc(sizeof(t_list));
+// Restituisce il puntatore all'ultimo nodo di una lista concatenata
+	t_list	*nodo1 = ft_lstnew("Primo nodo");
+	t_list	*nodo2 = ft_lstnew("Secondo nodo");
+	t_list	*nodo3 = ft_lstnew("Terzo nodo");
 
-    // Inizializzazione dei nodi con valori di esempio
-    node1->content = "Primo nodo";
-    node1->next = NULL;
+	t_list *nuova_lista = NULL;
 
-    node2->content = "Secondo nodo";
-    node2->next = NULL;
+	ft_lstadd_back(&nuova_lista, nodo1);
+	ft_lstadd_back(&nuova_lista, nodo2);
+	ft_lstadd_back(&nuova_lista, nodo3);
 
-    node3->content = "Terzo nodo";
-    node3->next = NULL;
+	t_list *ultimo_nodo = ft_lstlast(nuova_lista);
 
-    // Creazione di una lista vuota
-    t_list *myList = NULL;
-
-    // Aggiunta dei nodi alla lista
-    ft_lstadd_back(&myList, node1);
-    ft_lstadd_back(&myList, node2);
-    ft_lstadd_back(&myList, node3);
-
-    // Uso di ft_lstlast per ottenere l'ultimo elemento della lista
-    t_list *lastNode = ft_lstlast(myList);
-
-    // Stampa del contenuto dell'ultimo nodo
-    if (lastNode != NULL)
-        printf("Contenuto dell'ultimo nodo: %s\n", (char *)lastNode->content);
-    else
-        printf("La lista è vuota.\n");
-
-    // Deallocazione della memoria assegnata ai nodi e alla lista
-    ft_lstclear(&myList, free);
-
-    return 0;
+	if (ultimo_nodo != NULL)
+		printf("Ultimo nodo: %s\n", (char *)ultimo_nodo->content);
+	else
+		printf("La lista è vuota.\n");
+	free(nodo1);
+	free(nodo2);
+	free(nodo3);
+	return (0);
 }*/

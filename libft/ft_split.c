@@ -80,7 +80,7 @@ char	**ft_split(char const *s, char c)
 {
 // Divide una stringa passata, in più stringhe, allocando memoria per esse
 // La divide grazie a un char passato
-	char	str[] = "Ciao,mamma;guard,come;mi,diverto";
+	char	str[] = "Ciao,mamma;guarda,come;mi,diverto";
 	char	**risultato = ft_split(str, ',');
 	int	i = 0;
 	while (risultato[i] != NULL)

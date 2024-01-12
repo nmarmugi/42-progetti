@@ -38,33 +38,37 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	}
 	return (newlist);
 }
-/*void *example_function(void *content)
+/*void	*ft_mappa_function(void *content)
 {
-    // Esempio: duplicare una stringa
-    char *original = (char *)content;
-    char *duplicate = strdup(original);
-    return (void *)duplicate;
+	char	*original = (char *)content;
+	char	*duplicate = ft_strdup(original);
+	return ((void *)duplicate);
 }
-
+void	ft_deal(void *content)
+{
+	free(content);
+}
 int main()
 {
-    // Creazione di una lista di esempio
-    t_list *node1 = ft_lstnew("Hello");
-    t_list *node2 = ft_lstnew("World");
-    t_list *node3 = ft_lstnew("!");
+// Crea una nuova lista basata sull'originale e la dealloca
+	t_list	*nodo1 = ft_lstnew("Ciao");
+	t_list	*nodo2 = ft_lstnew("mamma");
+	t_list	*nodo3 = ft_lstnew("!");
 
-    // Collegamento dei nodi per formare una lista concatenata
-    node1->next = node2;
-    node2->next = node3;
+	nodo1->next = nodo2;
+	nodo2->next = nodo3;
 
-    t_list *newList = ft_lstmap(node1, example_function, free);
+	t_list	*nuova_lista = ft_lstmap(nodo1, ft_mappa_function, ft_deal);
 
-    // Stampa della nuova lista
-    printf("Nuova lista:\n");
-    t_list *current = newList;
-    while (current != NULL)
-    {
-        printf("%s\n", (char *)current->content);
-        current = current->next;
-    }
+	printf("Nuova lista:\n");
+	t_list	*lista = nuova_lista;
+	while (lista != NULL)
+	{
+		printf("%s\n", (char *)lista->content);
+		lista = lista->next;
+	}
+	ft_lstclear(&nuova_lista, ft_deal);
+	free(nodo1);
+	free(nodo2);
+	free(nodo3);
 }*/

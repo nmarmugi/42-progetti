@@ -22,30 +22,26 @@ void	ft_lstiter(t_list *lst, void (*f)(void *))
 		lst = lst->next;
 	}
 }
-/*void example_function(void *content)
+/*void ft_print_function(void *content)
 {
-    printf("Elemento: %s\n", (char *)content);
+    printf("Contenuto: %s\n", (char *)content);
 }
-
 int main()
 {
-    // Creazione di alcuni nodi per la lista
-    t_list *node1 = ft_lstnew("Primo nodo");
-    t_list *node2 = ft_lstnew("Secondo nodo");
-    t_list *node3 = ft_lstnew("Terzo nodo");
+// Stampa il contenuto dei nodi appartenenti a una lista concatenata
+	t_list	*nodo1 = ft_lstnew("Primo nodo");
+	t_list	*nodo2 = ft_lstnew("Secondo nodo");
+	t_list	*nodo3 = ft_lstnew("Terzo nodo");
 
-    // Creazione di una lista vuota
-    t_list *myList = NULL;
+	t_list *nuova_lista = NULL;
 
-    // Aggiunta dei nodi alla lista
-    ft_lstadd_back(&myList, node1);
-    ft_lstadd_back(&myList, node2);
-    ft_lstadd_back(&myList, node3);
+	ft_lstadd_back(&nuova_lista, nodo1);
+	ft_lstadd_back(&nuova_lista, nodo2);
+	ft_lstadd_back(&nuova_lista, nodo3);
 
-    ft_lstiter(myList, example_function);
-
-    // Deallocazione della memoria assegnata ai nodi e alla lista
-    ft_lstclear(&myList, free);
-
-    return 0;
+	ft_lstiter(nuova_lista, ft_print_function);
+	free(nodo1);
+	free(nodo2);
+	free(nodo3);
+	return (0);
 }*/

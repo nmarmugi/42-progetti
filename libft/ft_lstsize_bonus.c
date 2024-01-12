@@ -26,39 +26,23 @@ int	ft_lstsize(t_list *lst)
 }
 /*int main()
 {
-    // Creazione di alcuni nodi per la lista
-    t_list *node1 = (t_list *)malloc(sizeof(t_list));
-    t_list *node2 = (t_list *)malloc(sizeof(t_list));
-    t_list *node3 = (t_list *)malloc(sizeof(t_list));
+// Ci dice la lunghezza di una lista concatenata (il numero di nodi presenti)
+	t_list	*nodo1 = ft_lstnew("Primo nodo");
+	t_list	*nodo2 = ft_lstnew("Secondo nodo");
+	t_list	*nodo3 = ft_lstnew("Terzo nodo");
 
-    // Inizializzazione dei nodi con valori di esempio
-    node1->content = "Primo nodo";
-    node1->next = NULL;
+	t_list *nuova_lista = NULL;
 
-    node2->content = "Secondo nodo";
-    node2->next = NULL;
+	nuova_lista = nodo1;
+	nodo1->next = nodo2;
+	nodo2->next = nodo3;
 
-    node3->content = "Terzo nodo";
-    node3->next = NULL;
+	int	risultato = ft_lstsize(nuova_lista);
 
-    // Creazione di una lista vuota
-    t_list *myList = NULL;
+	printf("La dimensione della lista è: %d\n", risultato);
 
-    // Aggiunta dei nodi alla lista
-    myList = node1;
-    node1->next = node2;
-    node2->next = node3;
-
-    // Uso di ft_lstsize per ottenere la dimensione della lista
-    int size = ft_lstsize(myList);
-
-    // Stampa della dimensione della lista
-    printf("La dimensione della lista è: %d\n", size);
-
-    // Deallocazione della memoria assegnata ai nodi
-    free(node1);
-    free(node2);
-    free(node3);
-
-    return 0;
+	free(nodo1);
+	free(nodo2);
+	free(nodo3);
+	return (0);
 }*/

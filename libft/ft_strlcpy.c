@@ -18,7 +18,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	size_t	len_src;
 
 	i = 0;
-	len_src = 0;
+	len_src = ft_strlen(src);
 	if (size > 0)
 	{
 		while (i < size - 1 && src[i])
@@ -28,9 +28,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 		}
 		dst[i] = '\0';
 	}
-	while (src[i + len_src])
-		len_src++;
-	return (len_src + i);
+	return (len_src);
 }
 /*int	main()
 {
@@ -38,12 +36,14 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	const char	src[] = "Ciao mamma";
 	char	dest[15];
 	size_t	len_src;
-	len_src = sizeof(src);
+	dest[0] = '\0';
+	len_src = ft_strlen(src);
 	printf("Src: %s\n", src);
 	printf("Dest: %s\n", dest);
-	ft_strlcpy(dest, src, len_src);
+	size_t	copia_len = ft_strlcpy(dest, src, sizeof(dest));
 	printf("Src dopo: %s\n", src);
 	printf("Dest dopo: %s\n", dest);
 	printf("Lunghezza src: %ld\n", len_src);
+	printf("Lunghezza copiata in dest: %ld\n", copia_len);
 	return (0);
 }*/

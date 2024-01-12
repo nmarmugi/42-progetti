@@ -21,30 +21,37 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 }
 /*int main()
 {
-    // Creazione di alcuni nodi per la lista
-    t_list *node1 = ft_lstnew("Primo nodo");
-    t_list *node2 = ft_lstnew("Secondo nodo");
-    t_list *node3 = ft_lstnew("Terzo nodo");
+// Aggiunge un nuovo nodo all'inizio di una lista concatenata
+	t_list	*nodo1 = ft_lstnew("Primo nodo");
+	t_list	*nodo2 = ft_lstnew("Secondo nodo");
+	t_list	*nodo3 = ft_lstnew("Terzo nodo");
 
-    // Creazione di una lista vuota
-    t_list *myList = NULL;
+	t_list *nuova_lista = NULL;
 
-    // Aggiunta dei nodi alla lista (in ordine inverso)
-    ft_lstadd_front(&myList, node3);
-    ft_lstadd_front(&myList, node2);
-    ft_lstadd_front(&myList, node1);
+	ft_lstadd_front(&nuova_lista, nodo3);
+	ft_lstadd_front(&nuova_lista, nodo2);
+	
+	t_list	*lista = nuova_lista;
+	
+	printf("Lista prima:\n");
+	
+	while (lista != NULL)
+	{
+		printf("%s\n", (char *)lista->content);
+		lista = lista->next;
+	}
+	
+	ft_lstadd_front(&nuova_lista, nodo1);
 
-    // Stampa della lista
-    printf("Lista dopo l'aggiunta alla testa:\n");
-    t_list *current = myList;
-    while (current != NULL)
-    {
-        printf("%s\n", (char *)current->content);
-        current = current->next;
-    }
-
-    // Deallocazione della memoria assegnata ai nodi e alla lista
-    ft_lstclear(&myList, free);
-
-    return 0;
+	printf("Lista dopo l'aggiunta alla testa:\n");
+	
+	while (nuova_lista != NULL)
+	{
+		printf("%s\n", (char *)nuova_lista->content);
+		nuova_lista = nuova_lista->next;
+	}
+	free(nodo1);
+	free(nodo2);
+	free(nodo3);
+	return (0);
 }*/

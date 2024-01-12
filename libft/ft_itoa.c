@@ -74,5 +74,6 @@ char	*ft_itoa(int n)
 
 	printf("Numero intero: %d\n", num);
 	printf("Rappresentazione come stringa: %s\n", risultato);
+	free(risultato);
 	return (0);
 }*/

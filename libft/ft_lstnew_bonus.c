@@ -25,21 +25,13 @@ t_list	*ft_lstnew(void *content)
 }
 /*int main()
 {
-    // Creazione di un nuovo nodo con ft_lstnew
-    t_list *newNode = ft_lstnew("Contenuto del nuovo nodo");
+// Crea un nuovo e restituisce un puntatore ad esso
+// Puo essere utilizzato come "testa" di una lista concatenata
+// Per il momento punta a NULL perchè è la "testa" ma anche la "coda"
+	t_list *newNode = ft_lstnew("Ciao mamma");
 
-    // Verifica se la creazione del nuovo nodo è riuscita
-    if (newNode == NULL)
-    {
-        fprintf(stderr, "Errore durante la creazione del nuovo nodo.\n");
-        return 1;
-    }
-
-    // Stampa del contenuto del nuovo nodo
-    printf("Contenuto del nuovo nodo: %s\n", (char *)newNode->content);
-
-    // Deallocazione della memoria assegnata al nuovo nodo
-    free(newNode);
-
-    return 0;
+// Stampa del contenuto del nuovo nodo
+	printf("Contenuto del nuovo nodo: %s\n", (char *)newNode->content);
+	free(newNode);
+	return (0);
 }*/

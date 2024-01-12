@@ -18,13 +18,12 @@ void	ft_putchar_fd(char c, int fd)
 }
 /*int main(void)
 {
-	int stdout_fd = 1;
-	char carattere = 'A';
-	write(stdout_fd, "Stampa del carattere usando write:\n", 35);
-	write(stdout_fd, &carattere, 1);
-	write(stdout_fd, "\n\n", 2);
+// Scrive un carattere su file descriptor (Standard Input, Output, Error, ecc)
+	int	stdout_fd = 1;
+	char	carattere = 'A';
+	
 	write(stdout_fd, "Stampa del carattere usando ft_putchar_fd:\n", 44);
 	ft_putchar_fd(carattere, stdout_fd);
 	ft_putchar_fd('\n', stdout_fd);
-	return 0;
+	return (0);
 }*/

@@ -25,9 +25,10 @@ void	ft_putstr_fd(char *s, int fd)
 }
 /*int main(void)
 {
+// Stampa una stringa su un file descriptor
 	int stdout_fd = 1;
 
 	write(stdout_fd, "Stampa della stringa usando ft_putstr_fd:\n", 42);
-	ft_putstr_fd("Ciao, mondo!", stdout_fd);
-	return 0;
+	ft_putstr_fd("Ciao, mamma\n", stdout_fd);
+	return (0);
 }*/
