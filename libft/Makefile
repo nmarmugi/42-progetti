@@ -73,8 +73,8 @@ bonus:
 		ar rc $(NAME) $(BONUS_OBJS)
 all:		$(NAME)
 clean:
-			rm -f $(OBJS) $(BONUS_OBJS)
+			rm -f $(OBJS) $(BONUS_OBJS) libft.h.gch
 fclean:		clean
-			rm -f $(NAME)
+			rm -f $(NAME) libft.h.gch
 re:			fclean all
 .PHONY:		all clean fclean re bonus

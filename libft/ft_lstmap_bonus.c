@@ -54,12 +54,15 @@ int main()
 	t_list	*nodo1 = ft_lstnew("Ciao");
 	t_list	*nodo2 = ft_lstnew("mamma");
 	t_list	*nodo3 = ft_lstnew("!");
-
-	nodo1->next = nodo2;
-	nodo2->next = nodo3;
-
-	t_list	*nuova_lista = ft_lstmap(nodo1, ft_mappa_function, ft_deal);
-
+	
+	t_list	*nuova_lista = NULL;
+	
+	ft_lstadd_back(&nuova_lista, nodo1);
+	ft_lstadd_back(&nuova_lista, nodo2);
+	ft_lstadd_back(&nuova_lista, nodo3);
+	
+	nuova_lista = ft_lstmap(nodo1, ft_mappa_function, ft_deal);
+	
 	printf("Nuova lista:\n");
 	t_list	*lista = nuova_lista;
 	while (lista != NULL)

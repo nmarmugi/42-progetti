@@ -28,7 +28,7 @@ void	ft_bzero(void *s, size_t n)
 /*int	main()
 {
 // Imposta a 0, i primi n caratteri di una memoria puntata da un puntatore
-	char	str[10] = "Hello";
+	char	str[5] = "Ciao!";
 	printf("Prima ft_bzero: %s\n", str);
 	ft_bzero(str, 5);
 	printf("Dopo ft_bzero: %s\n", str);
