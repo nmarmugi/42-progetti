@@ -51,27 +51,21 @@ void	ft_deal(void *content)
 int main()
 {
 // Crea una nuova lista basata sull'originale e la dealloca
-	t_list	*nodo1 = ft_lstnew("Ciao");
-	t_list	*nodo2 = ft_lstnew("mamma");
-	t_list	*nodo3 = ft_lstnew("!");
-	
-	t_list	*nuova_lista = NULL;
-	
-	ft_lstadd_back(&nuova_lista, nodo1);
-	ft_lstadd_back(&nuova_lista, nodo2);
-	ft_lstadd_back(&nuova_lista, nodo3);
-	
-	nuova_lista = ft_lstmap(nodo1, ft_mappa_function, ft_deal);
-	
-	printf("Nuova lista:\n");
-	t_list	*lista = nuova_lista;
-	while (lista != NULL)
+	char	*str = (char *)malloc(sizeof(char) * 2);
+	if (!str)
+		return (1);
+	str[0] = 'a';
+	str[1] = '\0';
+	t_list	*nodo = ft_lstnew(str);
+	if (!nodo)
 	{
-		printf("%s\n", (char *)lista->content);
-		lista = lista->next;
+		free(str);
+		return (1);
 	}
-	ft_lstclear(&nuova_lista, ft_deal);
-	free(nodo1);
-	free(nodo2);
-	free(nodo3);
+	t_list	*map = ft_lstmap(nodo, &ft_mappa_function, ft_deal);
+	printf("%s\n", (char *)nodo->content);
+	printf("%s\n", (char *)map->content);
+	ft_lstclear(&map, &ft_deal);
+	ft_lstclear(&nodo, &ft_deal);
+	return (0);
 }*/
