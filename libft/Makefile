@@ -66,12 +66,12 @@ HDRS =	libft.h
 
 FLAGS = -Wall -Wextra -Werror
 $(NAME):
-		cc -c $(HDRS) $(FLAGS) $(SRCS)
+		cc -c $(FLAGS) $(HDRS) $(SRCS)
 		ar rc $(NAME) $(OBJS)
 bonus:
-		cc -c $(HDRS) $(FLAGS) $(BONUS)
+		cc -c $(FLAGS) $(HDRS) $(BONUS)
 		ar rc $(NAME) $(BONUS_OBJS)
-all:		$(NAME)
+all:		$(NAME) $(BONUS_OBJS)
 clean:
 			rm -f $(OBJS) $(BONUS_OBJS) libft.h.gch
 fclean:		clean
