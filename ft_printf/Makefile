@@ -6,16 +6,15 @@
 #    By: nmarmugi <nmarmugi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/16 11:20:54 by nmarmugi          #+#    #+#              #
-#    Updated: 2024/01/17 13:34:10 by nmarmugi         ###   ########.fr        #
+#    Updated: 2024/01/17 17:15:30 by nmarmugi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
 SRCS =	ft_printf.c \
-		ft_SRCS.c \
+		ft_PUTCHAR.c \
 		ft_PTR.c \
-		ft_ITOA.c
 		
 		
 OBJS = $(SRCS:.c=.o)

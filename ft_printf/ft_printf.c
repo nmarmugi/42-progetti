@@ -6,7 +6,7 @@
 /*   By: nmarmugi <nmarmugi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 12:51:58 by nmarmugi          #+#    #+#             */
-/*   Updated: 2024/01/17 13:42:55 by nmarmugi         ###   ########.fr       */
+/*   Updated: 2024/01/17 17:17:08 by nmarmugi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,16 @@ static int	ft_conversion(char c, va_list args)
 	else if (c == 's')
 		return (ft_putstr(va_arg(args, char *)));
 	else if (c == 'p')
-		return (ft_print_ptr(va_arg(args, unsigned long long int)));
+		return ((va_arg(args, unsigned long long int)));
 	else if (c == 'd')
-		return (ft_printnbr(va_arg(args, int)));
+		return ((va_arg(args, int), 10));
+	else if (c == 'x')
+		return ((va_arg(args, unsigned int), 16));
+	else if (c == 'X')
+		return ((va_arg(args, unsigned int), 16));
 	else if (c == '%')
 	{
-		ft_percent();
+		write (1, "%", 1);
 		return (1);
 	}
 	return (0);
@@ -62,10 +66,12 @@ int	ft_printf(const char *format, ...)
 
 int	main(void)
 {
-	ft_printf("Percentuale: % \n");
+	ft_printf("Percentuale: %%\n");
 	ft_printf("Carattere: %c\n", 'C');
 	ft_printf("Stringa: %s\n", "Ciao mamma");
 	ft_printf("Indirizzo: %p\n", "Ciao mamma");
 	ft_printf("Numero decimale: %d\n", 42);
+	ft_printf("Numero esadecimale minuscolo: %x\n", 0x1a3f);
+	ft_printf("Numero esadecimale maiuscolo: %X\n", 0x1A3F);
 	return (0);
 }

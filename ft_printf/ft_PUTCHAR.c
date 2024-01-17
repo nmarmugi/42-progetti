@@ -6,7 +6,7 @@
 /*   By: nmarmugi <nmarmugi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 10:53:23 by nmarmugi          #+#    #+#             */
-/*   Updated: 2024/01/17 13:33:35 by nmarmugi         ###   ########.fr       */
+/*   Updated: 2024/01/17 17:04:00 by nmarmugi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,22 +29,4 @@ int	ft_putstr(char *s)
 		i++;
 	}
 	return (i);
-}
-
-int	ft_printnbr(int n)
-{
-	int		len;
-	char	*num;
-
-	len = 0;
-	num = ft_itoa(n);
-	len = ft_putstr(num);
-	free(num);
-	return (len);
-}
-
-int	ft_percent(void)
-{
-	write(1, "%", 1);
-	return (1);
 }
