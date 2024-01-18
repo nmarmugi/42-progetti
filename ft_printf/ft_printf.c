@@ -6,7 +6,7 @@
 /*   By: nmarmugi <nmarmugi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 12:51:58 by nmarmugi          #+#    #+#             */
-/*   Updated: 2024/01/18 17:40:15 by nmarmugi         ###   ########.fr       */
+/*   Updated: 2024/01/18 21:40:04 by nmarmugi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,21 +70,31 @@ int	ft_printf(const char *format, ...)
 
 // int	main(void)
 // {
-//  	printf("");
-// 	printf("");
-// 	printf("");
-// 	printf("");
-// 	printf("");
-// 	printf("");
-// 	printf("");
-// 	printf("");
-// 	ft_printf("");
-// 	ft_printf("");
-// 	ft_printf("");
-// 	ft_printf("");
-// 	ft_printf("");
-// 	ft_printf("");
-// 	ft_printf("");
-// 	ft_printf("");
-//  	return (0);
+//  	char			c = 'a';
+// 	char			*s = "Ciao mamma";
+// 	int				a = 42;
+// 	char			*p = s;
+// 	unsigned int	b = 236;
+
+// 	printf("STAMPA CON PRINTF:\n");
+// 	printf("Carattere: %c\n", c);
+// 	printf("Stringa: %s\n", s);
+// 	printf("Indirizzo puntatore: %p\n", p);
+// 	printf("Numero decimale: %d\n", a);
+// 	printf("Numero intero: %i\n", a);
+// 	printf("Numero decimale senza segno: %u\n", b);
+// 	printf("Numero esadecimale minuscolo: %x\n", a);
+// 	printf("Numero esadecimale maiuscolo: %X\n", a);
+// 	printf("Percentuale: %%\n\n");
+// 	ft_printf("STAMPA CON FT_PRINTF:\n");
+// 	ft_printf("Carattere: %c\n", c);
+// 	ft_printf("Stringa: %s\n", s);
+// 	ft_printf("Indirizzo puntatore: %p\n", p);
+// 	ft_printf("Numero decimale: %d\n", a);
+// 	ft_printf("Numero intero: %i\n", a);
+// 	ft_printf("Numero decimale senza segno: %u\n", b);
+// 	ft_printf("Numero esadecimale minuscolo: %x\n", a);
+// 	ft_printf("Numero esadecimale maiuscolo: %X\n", a);
+//  ft_printf("Percentuale: %%\n");
+// 	return (0);
 // }
