@@ -6,15 +6,20 @@
 /*   By: nmarmugi <nmarmugi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 12:51:58 by nmarmugi          #+#    #+#             */
-/*   Updated: 2024/01/17 17:17:08 by nmarmugi         ###   ########.fr       */
+/*   Updated: 2024/01/18 17:40:15 by nmarmugi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+int	ft_putchar(int c)
+{
+	write (1, &c, 1);
+	return (1);
+}
+
 static int	ft_conversion(char c, va_list args)
 {
-	
 	if (c == 'c')
 	{
 		ft_putchar(va_arg(args, int));
@@ -23,18 +28,17 @@ static int	ft_conversion(char c, va_list args)
 	else if (c == 's')
 		return (ft_putstr(va_arg(args, char *)));
 	else if (c == 'p')
-		return ((va_arg(args, unsigned long long int)));
-	else if (c == 'd')
-		return ((va_arg(args, int), 10));
+		return ((long)ft_print_address(va_arg(args, unsigned long), 0));
+	else if (c == 'd' || c == 'i')
+		return (ft_putnbr(va_arg(args, int)));
+	else if (c == 'u')
+		return (ft_putnbr(va_arg(args, unsigned int)));
 	else if (c == 'x')
-		return ((va_arg(args, unsigned int), 16));
+		return ((long)ft_print_lowhex(va_arg(args, unsigned int)));
 	else if (c == 'X')
-		return ((va_arg(args, unsigned int), 16));
+		return ((long)ft_print_upphex(va_arg(args, unsigned int)));
 	else if (c == '%')
-	{
-		write (1, "%", 1);
-		return (1);
-	}
+		return (ft_putchar('%'));
 	return (0);
 }
 
@@ -64,14 +68,23 @@ int	ft_printf(const char *format, ...)
 	return (len);
 }
 
-int	main(void)
-{
-	ft_printf("Percentuale: %%\n");
-	ft_printf("Carattere: %c\n", 'C');
-	ft_printf("Stringa: %s\n", "Ciao mamma");
-	ft_printf("Indirizzo: %p\n", "Ciao mamma");
-	ft_printf("Numero decimale: %d\n", 42);
-	ft_printf("Numero esadecimale minuscolo: %x\n", 0x1a3f);
-	ft_printf("Numero esadecimale maiuscolo: %X\n", 0x1A3F);
-	return (0);
-}
+// int	main(void)
+// {
+//  	printf("");
+// 	printf("");
+// 	printf("");
+// 	printf("");
+// 	printf("");
+// 	printf("");
+// 	printf("");
+// 	printf("");
+// 	ft_printf("");
+// 	ft_printf("");
+// 	ft_printf("");
+// 	ft_printf("");
+// 	ft_printf("");
+// 	ft_printf("");
+// 	ft_printf("");
+// 	ft_printf("");
+//  	return (0);
+// }
