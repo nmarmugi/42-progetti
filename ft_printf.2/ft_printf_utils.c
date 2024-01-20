@@ -6,11 +6,17 @@
 /*   By: nmarmugi <nmarmugi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 10:53:23 by nmarmugi          #+#    #+#             */
-/*   Updated: 2024/01/19 19:44:41 by nmarmugi         ###   ########.fr       */
+/*   Updated: 2024/01/20 13:11:51 by nmarmugi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+int	ft_putchar(int c)
+{
+	write (1, &c, 1);
+	return (1);
+}
 
 int	ft_putstr(char *s)
 {

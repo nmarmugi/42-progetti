@@ -6,17 +6,11 @@
 /*   By: nmarmugi <nmarmugi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 12:51:58 by nmarmugi          #+#    #+#             */
-/*   Updated: 2024/01/19 19:51:55 by nmarmugi         ###   ########.fr       */
+/*   Updated: 2024/01/20 13:12:03 by nmarmugi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-int	ft_putchar(int c)
-{
-	write (1, &c, 1);
-	return (1);
-}
 
 static int	ft_conversion(char c, va_list args)
 {
@@ -28,7 +22,7 @@ static int	ft_conversion(char c, va_list args)
 	else if (c == 's')
 		return (ft_putstr(va_arg(args, char *)));
 	else if (c == 'p')
-		return (ft_print_ptr(va_arg(args, unsigned long long)));
+		return (ft_print_ptr(va_arg(args, uintptr_t)));
 	else if (c == 'd' || c == 'i')
 		return (ft_putnbr(va_arg(args, int)));
 	else if (c == 'u')
