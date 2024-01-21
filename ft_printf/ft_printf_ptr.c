@@ -43,16 +43,16 @@ static void	ft_put_ptr(uintptr_t num)
 
 int	ft_print_ptr(uintptr_t ptr)
 {
-	int	print_length;
+	int	print_len;
 
-	print_length = 0;
+	print_len = 0;
 	if (ptr == 0)
-		print_length += write(1, "(nil)", 5);
+		print_len += write(1, "(nil)", 5);
 	else
 	{
-		print_length += write(1, "0x", 2);
+		print_len += write(1, "0x", 2);
 		ft_put_ptr(ptr);
-		print_length += ft_ptr_len(ptr);
+		print_len += ft_ptr_len(ptr);
 	}
-	return (print_length);
+	return (print_len);
 }

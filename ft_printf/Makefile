@@ -6,7 +6,7 @@
 #    By: nmarmugi <nmarmugi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/16 11:20:54 by nmarmugi          #+#    #+#              #
-#    Updated: 2024/01/18 16:39:48 by nmarmugi         ###   ########.fr        #
+#    Updated: 2024/01/19 19:31:11 by nmarmugi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,8 @@ NAME = libftprintf.a
 
 SRCS =	ft_printf.c \
 		ft_printf_utils.c \
-		
+		ft_printf_hex.c \
+		ft_printf_ptr.c \
 		
 OBJS = $(SRCS:.c=.o)
 

@@ -6,11 +6,17 @@
 /*   By: nmarmugi <nmarmugi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 10:53:23 by nmarmugi          #+#    #+#             */
-/*   Updated: 2024/01/18 17:32:39 by nmarmugi         ###   ########.fr       */
+/*   Updated: 2024/01/20 13:11:51 by nmarmugi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+int	ft_putchar(int c)
+{
+	write (1, &c, 1);
+	return (1);
+}
 
 int	ft_putstr(char *s)
 {
@@ -46,60 +52,5 @@ int	ft_putnbr(long n)
 			i += ft_putnbr(n / 10);
 		i += ft_putchar((n % 10) + '0');
 	}
-	return (i);
-}
-
-int	ft_print_lowhex(unsigned long n)
-{
-	char	*lowhex;
-	int		i;
-
-	lowhex = "0123456789abcdef";
-	i = 0;
-	if (n >= 16)
-	{
-		i += ft_print_lowhex(n / 16);
-		i += ft_print_lowhex(n % 16);
-	}
-	else
-		i += ft_putchar(lowhex[n]);
-	return (i);
-}
-
-int	ft_print_upphex(unsigned long n)
-{
-	char	*upphex;
-	int		i;
-
-	upphex = "0123456789ABCDEF";
-	i = 0;
-	if (n >= 16)
-	{
-		i += ft_print_upphex(n / 16);
-		i += ft_print_upphex(n % 16);
-	}
-	else
-		i += ft_putchar(upphex[n]);
-	return (i);
-}
-
-int	ft_print_address(unsigned long ptr, int index)
-{
-	char	*lowhex;
-	int		i;
-
-	lowhex = "0123456789abcdef";
-	i = 0;
-	if (!index && !ptr)
-		return (ft_putstr("(nil)"));
-	if (index == 0)
-		i += ft_putstr("0x");
-	if (ptr >= 16)
-	{
-		i += ft_print_lowhex(ptr / 16);
-		i += ft_print_lowhex(ptr % 16);
-	}
-	else
-		i += ft_putchar(lowhex[ptr]);
 	return (i);
 }

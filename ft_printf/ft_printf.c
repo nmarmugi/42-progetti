@@ -6,17 +6,11 @@
 /*   By: nmarmugi <nmarmugi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 12:51:58 by nmarmugi          #+#    #+#             */
-/*   Updated: 2024/01/18 21:40:04 by nmarmugi         ###   ########.fr       */
+/*   Updated: 2024/01/21 10:59:34 by nmarmugi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-int	ft_putchar(int c)
-{
-	write (1, &c, 1);
-	return (1);
-}
 
 static int	ft_conversion(char c, va_list args)
 {
@@ -28,15 +22,15 @@ static int	ft_conversion(char c, va_list args)
 	else if (c == 's')
 		return (ft_putstr(va_arg(args, char *)));
 	else if (c == 'p')
-		return ((long)ft_print_address(va_arg(args, unsigned long), 0));
+		return (ft_print_ptr(va_arg(args, uintptr_t)));
 	else if (c == 'd' || c == 'i')
 		return (ft_putnbr(va_arg(args, int)));
 	else if (c == 'u')
 		return (ft_putnbr(va_arg(args, unsigned int)));
 	else if (c == 'x')
-		return ((long)ft_print_lowhex(va_arg(args, unsigned int)));
+		return (ft_print_hex(va_arg(args, unsigned int), 'x'));
 	else if (c == 'X')
-		return ((long)ft_print_upphex(va_arg(args, unsigned int)));
+		return (ft_print_hex(va_arg(args, unsigned int), 'X'));
 	else if (c == '%')
 		return (ft_putchar('%'));
 	return (0);
@@ -95,6 +89,6 @@ int	ft_printf(const char *format, ...)
 // 	ft_printf("Numero decimale senza segno: %u\n", b);
 // 	ft_printf("Numero esadecimale minuscolo: %x\n", a);
 // 	ft_printf("Numero esadecimale maiuscolo: %X\n", a);
-//  ft_printf("Percentuale: %%\n");
+//  	ft_printf("Percentuale: %%\n");
 // 	return (0);
 // }
