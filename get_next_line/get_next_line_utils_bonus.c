@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmarmugi <nmarmugi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/22 11:52:24 by nmarmugi          #+#    #+#             */
-/*   Updated: 2024/01/23 16:24:46 by nmarmugi         ###   ########.fr       */
+/*   Created: 2024/01/23 13:22:43 by nmarmugi          #+#    #+#             */
+/*   Updated: 2024/01/23 16:27:25 by nmarmugi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 int	ft_strlen(const char *s)
 {

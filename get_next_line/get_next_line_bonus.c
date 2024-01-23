@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmarmugi <nmarmugi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/22 11:52:03 by nmarmugi          #+#    #+#             */
-/*   Updated: 2024/01/23 16:29:21 by nmarmugi         ###   ########.fr       */
+/*   Created: 2024/01/23 13:23:33 by nmarmugi          #+#    #+#             */
+/*   Updated: 2024/01/23 16:26:41 by nmarmugi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 static char	*ft_add_buffer(char *buffer, int fd)
 {

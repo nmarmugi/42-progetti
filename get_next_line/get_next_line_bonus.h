@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmarmugi <nmarmugi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/22 11:05:24 by nmarmugi          #+#    #+#             */
-/*   Updated: 2024/01/23 16:20:19 by nmarmugi         ###   ########.fr       */
+/*   Created: 2024/01/23 13:23:25 by nmarmugi          #+#    #+#             */
+/*   Updated: 2024/01/23 16:26:16 by nmarmugi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#ifndef GET_NEXT_LINE_BONUS_H
+# define GET_NEXT_LINE_BONUS_H
 
 # include <unistd.h>
 # include <stdlib.h>
