@@ -6,82 +6,108 @@
 /*   By: nmarmugi <nmarmugi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 13:22:43 by nmarmugi          #+#    #+#             */
-/*   Updated: 2024/01/23 16:27:25 by nmarmugi         ###   ########.fr       */
+/*   Updated: 2024/01/25 18:26:42 by nmarmugi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
 
-int	ft_strlen(const char *s)
+char	*ft_strchr_bonus(const char *s, int c)
 {
-	int	i;
+	unsigned char	*str;
 
-	i = 0;
-	while (s && s[i])
-		i++;
-	return (i);
-}
-
-char	*ft_strchr(const char *s, int c)
-{
-	char	*str;
-
-	str = (char *)s;
 	c = '\n';
-	while (*str != (char)c)
+	str = (unsigned char *)s;
+	while (*str != (unsigned char)c)
 	{
 		if (*str == '\0')
+		{
 			return (NULL);
+		}
 		str++;
 	}
 	return ((char *)str);
 }
 
-char	*ft_strjoin(const char *s1, const char *s2)
+size_t	ft_strlen_bonus(const char *str)
 {
-	size_t	len_s1;
-	size_t	len_s2;
-	char	*result;
+	int	i;
 
-	if (!s1 || !s2)
-		return (NULL);
-	len_s1 = ft_strlen(s1);
-	len_s2 = ft_strlen(s2);
-	result = (char *)malloc((len_s1 + len_s2 + 1) * sizeof(char));
-	if (!result)
-		return (NULL);
-	while (*s1)
-		*result++ = *s1++;
-	while (*s2)
-		*result++ = *s2++;
-	*result = '\0';
-	return (result - len_s1 - len_s2);
-}
-
-static void	ft_bzero(void *s, size_t n)
-{
-	char	*ptr;
-	size_t	i;
-
-	ptr = (char *)s;
 	i = 0;
-	while (i < n)
+	while (str && str[i])
 	{
-		ptr[i] = '\0';
 		i++;
 	}
+	return (i);
 }
 
-void	*ft_calloc(size_t nmemb, size_t size)
+char	*ft_strjoin_bonus(char const *s1, char const *s2)
 {
-	size_t	tot_size;
-	void	*ptr;
+	int		i;
+	int		k;
+	char	*str;
 
-	tot_size = nmemb * size;
-	ptr = malloc(tot_size);
-	if (nmemb != 0 && tot_size / nmemb != size)
+	i = 0;
+	k = 0;
+	str = (char *)malloc(sizeof(char) * \
+		(ft_strlen_bonus(s1) + ft_strlen_bonus(s2) + 1));
+	if (str == NULL)
 		return (NULL);
-	if (size > 0)
-		ft_bzero(ptr, tot_size);
-	return (ptr);
+	while (s1[i] != '\0')
+	{
+		str[i] = s1[i];
+		i++;
+	}
+	while (s2[k] != '\0')
+	{
+		str[i + k] = s2[k];
+		k++;
+	}
+	str[i + k] = '\0';
+	return (str);
+}
+
+void	*ft_calloc_bonus(size_t count, size_t size)
+{
+	void			*p;
+	unsigned char	*pp;
+	size_t			n;
+
+	n = count * size;
+	p = malloc(n);
+	if (p == NULL)
+		return (p);
+	pp = p;
+	while (n)
+	{
+		*pp++ = 0;
+		--n;
+	}
+	return (p);
+}
+
+char	*ft_substr_bonus(char const *s, unsigned int start, size_t len)
+{
+	unsigned int	i;
+	char			*str;
+
+	i = 0;
+	if (start >= ft_strlen_bonus(s))
+	{
+		start = ft_strlen_bonus(s);
+		len = 0;
+	}
+	if (len + start > ft_strlen_bonus(s))
+	{
+		len = ft_strlen_bonus(s) - start;
+	}
+	str = ft_calloc_bonus(len + 1, sizeof(char));
+	if (!str)
+		return (NULL);
+	while (i < len && s[start + i])
+	{
+		str[i] = s[start + i];
+		i++;
+	}
+	return (str);
 }
