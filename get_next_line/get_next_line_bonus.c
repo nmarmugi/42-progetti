@@ -6,113 +6,121 @@
 /*   By: nmarmugi <nmarmugi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 13:23:33 by nmarmugi          #+#    #+#             */
-/*   Updated: 2024/01/25 18:27:18 by nmarmugi         ###   ########.fr       */
+/*   Updated: 2024/01/26 12:28:08 by nmarmugi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
 
-char	*ft_freejoin_bonus(char *str1, char *str2)
+static char	*ft_add_buffer(char *buffer, int fd)
 {
-	char	*temp;
+	char	*buffer_tmp;
+	int		read_chr;
 
-	temp = ft_strjoin_bonus(str1, str2);
-	free(str1);
-	return (temp);
-}
-
-char	*ft_sep_str_bonus(char **testo)
-{
-	char	*buffer;
-	char	*temp;
-	char	*ret;
-	int		i;
-	int		j;
-
-	i = 0;
-	j = 0;
-	temp = *testo;
-	ret = NULL;
-	while (temp[i] && temp[i] != '\n')
-	{
-		i++;
-	}
-	if (!temp[i])
-		j = -1;
-	i++;
-	while (j != -1 && temp[i + j])
-		j++;
-	buffer = ft_substr_bonus(*testo, 0, i);
-	if (j != -1)
-		ret = ft_substr_bonus(*testo, i, j);
-	free(temp);
-	*testo = ret;
-	return (buffer);
-}
-
-char	*ft_get_line_bonus(int fd, char *testo)
-{
-	int		bytes_read;
-	char	*buffer;
-
-	bytes_read = 1;
-	buffer = malloc(sizeof(char) * (BUFFER_SIZE + 1));
-	if (!buffer)
+	buffer_tmp = ft_calloc((BUFFER_SIZE + 1), sizeof(char));
+	if (!buffer_tmp)
 		return (NULL);
-	while (bytes_read > 0)
+	read_chr = BUFFER_SIZE;
+	while (!ft_strchr(buffer_tmp, '\n') && read_chr != 0)
 	{
-		bytes_read = read(fd, buffer, BUFFER_SIZE);
-		if (bytes_read == -1 || \
-			(bytes_read == 0 && ft_strlen_bonus(testo) == 0))
+		read_chr = read(fd, buffer_tmp, BUFFER_SIZE);
+		if (read_chr == -1)
 		{
-			free(testo);
-			free(buffer);
+			free(buffer_tmp);
 			return (NULL);
 		}
-		buffer[bytes_read] = '\0';
-		testo = ft_freejoin_bonus(testo, buffer);
-		if (ft_strchr_bonus(buffer, '\n'))
-			break ;
+		buffer = ft_strjoin(buffer, buffer_tmp, read_chr);
+		if (ft_strlen(buffer) == 0)
+		{
+			free(buffer);
+			free(buffer_tmp);
+			return (NULL);
+		}
 	}
-	free(buffer);
-	return (testo);
+	free(buffer_tmp);
+	return (buffer);
 }
 
-char	*get_next_line_bonus(int fd)
+static char	*ft_next_line(char *buffer)
 {
-	static char	*testo[1024];
-	char		*buffer;
+	char	*line;
+	int		i;
 
-	buffer = NULL;
-	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
+	i = 0;
+	if (!buffer)
+		return (NULL);
+	while (buffer[i] != '\n' && buffer[i])
+		i++;
+	line = malloc((i + 2) * sizeof(char));
+	if (!line)
+		return (NULL);
+	i = 0;
+	while (buffer[i] != '\n' && buffer[i])
 	{
-		free(testo[fd]);
+		line[i] = buffer[i];
+		i++;
+	}
+	if (buffer[i] == '\n')
+	{
+		line[i] = '\n';
+		i++;
+	}
+	line[i] = '\0';
+	return (line);
+}
+
+static char	*ft_new_buffer(char *buffer)
+{
+	char	*buffer_tmp;
+	int		i;
+	int		newline_buffer;
+
+	i = 0;
+	while (buffer && buffer[i] != '\n' && buffer[i])
+		i++;
+	if (!buffer || !buffer[i])
+	{
+		free(buffer);
 		return (NULL);
 	}
-	if (!testo[fd])
-		testo[fd] = ft_calloc_bonus(1, 1);
-	if (!testo[fd])
+	if (buffer[i] != 0)
+		newline_buffer = 1;
+	else
+		newline_buffer = 0;
+	buffer_tmp = ft_strjoin(NULL, buffer + i + newline_buffer,
+			ft_strlen(buffer) - i + !buffer[i] - 1);
+	free (buffer);
+	return (buffer_tmp);
+}
+
+char	*get_next_line(int fd)
+{
+	char		*line;
+	static char	*fd_buffer[4096];
+
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	testo[fd] = ft_get_line_bonus(fd, testo[fd]);
-	if (!testo[fd])
+	fd_buffer[fd] = ft_add_buffer(fd_buffer[fd], fd);
+	if (!fd_buffer[fd])
 		return (NULL);
-	buffer = ft_sep_str_bonus(&testo[fd]);
-	return (buffer);
+	line = ft_next_line(fd_buffer[fd]);
+	fd_buffer[fd] = ft_new_buffer(fd_buffer[fd]);
+	return (line);
 }
 
 // int	main()
 // {
-// 	int fd = open("test.txt", O_RDONLY);
-// 	char *line;
-// 	int	lines = 1;
+// 	int		fd1 = open("test.txt", O_RDONLY);
+// 	int		fd2 = open("test1.txt", O_RDONLY);
+// 	char	*str;
 
-// 	while (1)
+// 	for (int i = 0; i < 4; i++)
 // 	{
-// 		line = get_next_line_bonus(fd);
-// 		if (line == NULL)
-// 			break ;
-// 		printf("%d->%s\n", lines++, line);
-// 		free(line);
+// 		str = get_next_line(fd1);
+// 		printf("Linea letta del file %i: (riga %i) :%s", 1, i +1, str);
+// 		free(str);
+// 		str = get_next_line(fd2);
+// 		printf("Linea letta del file %i: (riga %i) :%s", 2, i +1, str);
+// 		free(str);
 // 	}
-// 	close(fd);
 // }

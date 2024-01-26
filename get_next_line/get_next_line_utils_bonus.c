@@ -6,108 +6,88 @@
 /*   By: nmarmugi <nmarmugi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 13:22:43 by nmarmugi          #+#    #+#             */
-/*   Updated: 2024/01/25 18:26:42 by nmarmugi         ###   ########.fr       */
+/*   Updated: 2024/01/26 11:53:07 by nmarmugi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
 
-char	*ft_strchr_bonus(const char *s, int c)
+char	*ft_strchr(char *s, int c)
 {
-	unsigned char	*str;
+	size_t	i;
+	size_t	len;
 
-	c = '\n';
-	str = (unsigned char *)s;
-	while (*str != (unsigned char)c)
+	i = 0;
+	if (!s)
+		return (NULL);
+	len = ft_strlen(s);
+	while (i <= len)
 	{
-		if (*str == '\0')
-		{
-			return (NULL);
-		}
-		str++;
+		if (s[i] == (char)c)
+			return (&s[i]);
+		i++;
 	}
-	return ((char *)str);
+	return (NULL);
 }
 
-size_t	ft_strlen_bonus(const char *str)
+static void	*ft_memset(void *s, int c, size_t n)
+{
+	char	*ptr;
+	size_t	i;
+
+	i = 0;
+	ptr = (char *)s;
+	while (i < n)
+	{
+		ptr[i] = c;
+		i++;
+	}
+	return (ptr);
+}
+
+void	*ft_calloc(size_t nmemb, size_t size)
+{
+	size_t	tot_size;
+	void	*ptr;
+
+	tot_size = nmemb * size;
+	ptr = malloc(tot_size);
+	if (nmemb != 0 && tot_size / nmemb != size)
+		return (NULL);
+	if (size > 0)
+		ft_memset(ptr, '\0', tot_size);
+	return (ptr);
+}
+
+size_t	ft_strlen(const char *s)
 {
 	int	i;
 
 	i = 0;
-	while (str && str[i])
-	{
+	while (s && s[i])
 		i++;
-	}
 	return (i);
 }
 
-char	*ft_strjoin_bonus(char const *s1, char const *s2)
+char	*ft_strjoin(char *s1, char *s2, size_t size)
 {
-	int		i;
-	int		k;
-	char	*str;
+	char	*res;
+	size_t	len;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
-	k = 0;
-	str = (char *)malloc(sizeof(char) * \
-		(ft_strlen_bonus(s1) + ft_strlen_bonus(s2) + 1));
-	if (str == NULL)
+	j = 0;
+	len = ft_strlen(s1);
+	res = malloc((len + size + 1) * sizeof(char));
+	if (!res)
 		return (NULL);
-	while (s1[i] != '\0')
-	{
-		str[i] = s1[i];
-		i++;
-	}
-	while (s2[k] != '\0')
-	{
-		str[i + k] = s2[k];
-		k++;
-	}
-	str[i + k] = '\0';
-	return (str);
-}
-
-void	*ft_calloc_bonus(size_t count, size_t size)
-{
-	void			*p;
-	unsigned char	*pp;
-	size_t			n;
-
-	n = count * size;
-	p = malloc(n);
-	if (p == NULL)
-		return (p);
-	pp = p;
-	while (n)
-	{
-		*pp++ = 0;
-		--n;
-	}
-	return (p);
-}
-
-char	*ft_substr_bonus(char const *s, unsigned int start, size_t len)
-{
-	unsigned int	i;
-	char			*str;
-
-	i = 0;
-	if (start >= ft_strlen_bonus(s))
-	{
-		start = ft_strlen_bonus(s);
-		len = 0;
-	}
-	if (len + start > ft_strlen_bonus(s))
-	{
-		len = ft_strlen_bonus(s) - start;
-	}
-	str = ft_calloc_bonus(len + 1, sizeof(char));
-	if (!str)
-		return (NULL);
-	while (i < len && s[start + i])
-	{
-		str[i] = s[start + i];
-		i++;
-	}
-	return (str);
+	while (len > i && s1 && s1[i])
+		res[i++] = s1[j++];
+	j = 0;
+	while (j < size && s2 && s2[j])
+		res[i++] = s2[j++];
+	res[i] = '\0';
+	free(s1);
+	return (res);
 }

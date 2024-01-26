@@ -6,28 +6,26 @@
 /*   By: nmarmugi <nmarmugi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 13:23:25 by nmarmugi          #+#    #+#             */
-/*   Updated: 2024/01/25 18:06:06 by nmarmugi         ###   ########.fr       */
+/*   Updated: 2024/01/26 12:12:17 by nmarmugi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_BONUS_H
 # define GET_NEXT_LINE_BONUS_H
 
+# include <stdlib.h>
+# include <unistd.h>
+# include <stdio.h>
+# include <fcntl.h>
+
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 10
+#  define BUFFER_SIZE 1024
 # endif
 
-# include <string.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include <fcntl.h>
-# include <stdio.h>
-
-char	*get_next_line_bonus(int fd);
-char	*ft_strchr_bonus(const char *s, int c);
-size_t	ft_strlen_bonus(const char *str);
-char	*ft_strjoin_bonus(char const *s1, char const *s2);
-void	*ft_calloc_bonus(size_t n, size_t size);
-char	*ft_substr_bonus(char const *s, unsigned int start, size_t len);
+void	*ft_calloc(size_t count, size_t size);
+size_t	ft_strlen(const char *s);
+char	*ft_strchr(char *s, int c);
+char	*ft_strjoin(char *s1, char *s2, size_t size);
+char	*get_next_line(int fd);
 
 #endif
