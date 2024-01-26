@@ -6,7 +6,7 @@
 /*   By: nmarmugi <nmarmugi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 13:23:33 by nmarmugi          #+#    #+#             */
-/*   Updated: 2024/01/26 12:28:08 by nmarmugi         ###   ########.fr       */
+/*   Updated: 2024/01/26 19:14:31 by nmarmugi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,11 +110,19 @@ char	*get_next_line(int fd)
 
 // int	main()
 // {
+// // add_buffer: Concateno in un ciclo while,
+// // tot BUFFER_SIZE iterazioni fintanto che non trovo \n o fine fd.
+// // next_line: Estraggo da add_buffer la linea fino a \n o \0,
+// // con memoria allocata per essa + 2 per \n e \0 e ritorno alla linea.
+// // new_buffer: Creo un nuovo buffer che va da dopo il \n della riga precedentemente estratta in poi.
+// // get_next_line: Eseguo il tutto per tutto il file fd e posso gestire fino a 1024 fd
 // 	int		fd1 = open("test.txt", O_RDONLY);
 // 	int		fd2 = open("test1.txt", O_RDONLY);
 // 	char	*str;
+// 	int		i;
 
-// 	for (int i = 0; i < 4; i++)
+// 	i = 0;
+// 	while (i < 13)
 // 	{
 // 		str = get_next_line(fd1);
 // 		printf("Linea letta del file %i: (riga %i) :%s", 1, i +1, str);
@@ -122,5 +130,8 @@ char	*get_next_line(int fd)
 // 		str = get_next_line(fd2);
 // 		printf("Linea letta del file %i: (riga %i) :%s", 2, i +1, str);
 // 		free(str);
+// 		i++;
 // 	}
+// 	close(fd1);
+// 	close(fd2);
 // }
