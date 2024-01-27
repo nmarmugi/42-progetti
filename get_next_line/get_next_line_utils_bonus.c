@@ -6,29 +6,11 @@
 /*   By: nmarmugi <nmarmugi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 13:22:43 by nmarmugi          #+#    #+#             */
-/*   Updated: 2024/01/26 11:53:07 by nmarmugi         ###   ########.fr       */
+/*   Updated: 2024/01/27 11:05:50 by nmarmugi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
-
-char	*ft_strchr(char *s, int c)
-{
-	size_t	i;
-	size_t	len;
-
-	i = 0;
-	if (!s)
-		return (NULL);
-	len = ft_strlen(s);
-	while (i <= len)
-	{
-		if (s[i] == (char)c)
-			return (&s[i]);
-		i++;
-	}
-	return (NULL);
-}
 
 static void	*ft_memset(void *s, int c, size_t n)
 {
@@ -67,6 +49,24 @@ size_t	ft_strlen(const char *s)
 	while (s && s[i])
 		i++;
 	return (i);
+}
+
+char	*ft_strchr(char *s, int c)
+{
+	size_t	i;
+	size_t	len;
+
+	i = 0;
+	if (!s)
+		return (NULL);
+	len = ft_strlen(s);
+	while (i <= len)
+	{
+		if (s[i] == (char)c)
+			return (&s[i]);
+		i++;
+	}
+	return (NULL);
 }
 
 char	*ft_strjoin(char *s1, char *s2, size_t size)
