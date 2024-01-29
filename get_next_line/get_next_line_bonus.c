@@ -6,7 +6,7 @@
 /*   By: nmarmugi <nmarmugi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 13:23:33 by nmarmugi          #+#    #+#             */
-/*   Updated: 2024/01/26 19:14:31 by nmarmugi         ###   ########.fr       */
+/*   Updated: 2024/01/29 11:52:25 by nmarmugi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ static char	*ft_new_buffer(char *buffer)
 char	*get_next_line(int fd)
 {
 	char		*line;
-	static char	*fd_buffer[4096];
+	static char	*fd_buffer[10];
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
@@ -114,8 +114,8 @@ char	*get_next_line(int fd)
 // // tot BUFFER_SIZE iterazioni fintanto che non trovo \n o fine fd.
 // // next_line: Estraggo da add_buffer la linea fino a \n o \0,
 // // con memoria allocata per essa + 2 per \n e \0 e ritorno alla linea.
-// // new_buffer: Creo un nuovo buffer che va da dopo il \n della riga precedentemente estratta in poi.
-// // get_next_line: Eseguo il tutto per tutto il file fd e posso gestire fino a 1024 fd
+// // new_buffer: Creo un nuovo buffer che va da dopo il \n
+// // della riga precedentemente estratta in poi.
 // 	int		fd1 = open("test.txt", O_RDONLY);
 // 	int		fd2 = open("test1.txt", O_RDONLY);
 // 	char	*str;
