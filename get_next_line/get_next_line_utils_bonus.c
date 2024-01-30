@@ -6,7 +6,7 @@
 /*   By: nmarmugi <nmarmugi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 13:22:43 by nmarmugi          #+#    #+#             */
-/*   Updated: 2024/01/27 11:05:50 by nmarmugi         ###   ########.fr       */
+/*   Updated: 2024/01/30 10:50:38 by nmarmugi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,31 +14,31 @@
 
 static void	*ft_memset(void *s, int c, size_t n)
 {
-	char	*ptr;
+	char	*result;
 	size_t	i;
 
 	i = 0;
-	ptr = (char *)s;
+	result = (char *)s;
 	while (i < n)
 	{
-		ptr[i] = c;
+		result[i] = c;
 		i++;
 	}
-	return (ptr);
+	return (result);
 }
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {
 	size_t	tot_size;
-	void	*ptr;
+	void	*result;
 
 	tot_size = nmemb * size;
-	ptr = malloc(tot_size);
+	result = malloc(tot_size);
 	if (nmemb != 0 && tot_size / nmemb != size)
 		return (NULL);
 	if (size > 0)
-		ft_memset(ptr, '\0', tot_size);
-	return (ptr);
+		ft_memset(result, '\0', tot_size);
+	return (result);
 }
 
 size_t	ft_strlen(const char *s)
@@ -54,13 +54,13 @@ size_t	ft_strlen(const char *s)
 char	*ft_strchr(char *s, int c)
 {
 	size_t	i;
-	size_t	len;
+	size_t	len_s;
 
 	i = 0;
 	if (!s)
 		return (NULL);
-	len = ft_strlen(s);
-	while (i <= len)
+	len_s = ft_strlen(s);
+	while (i <= len_s)
 	{
 		if (s[i] == (char)c)
 			return (&s[i]);
@@ -71,23 +71,23 @@ char	*ft_strchr(char *s, int c)
 
 char	*ft_strjoin(char *s1, char *s2, size_t size)
 {
-	char	*res;
-	size_t	len;
+	char	*result;
+	size_t	len_s1;
 	size_t	i;
 	size_t	j;
 
 	i = 0;
 	j = 0;
-	len = ft_strlen(s1);
-	res = malloc((len + size + 1) * sizeof(char));
-	if (!res)
+	len_s1 = ft_strlen(s1);
+	result = malloc((len_s1 + size + 1) * sizeof(char));
+	if (!result)
 		return (NULL);
-	while (len > i && s1 && s1[i])
-		res[i++] = s1[j++];
+	while (len_s1 > i && s1 && s1[i])
+		result[i++] = s1[j++];
 	j = 0;
 	while (j < size && s2 && s2[j])
-		res[i++] = s2[j++];
-	res[i] = '\0';
+		result[i++] = s2[j++];
+	result[i] = '\0';
 	free(s1);
-	return (res);
+	return (result);
 }

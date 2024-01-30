@@ -6,30 +6,30 @@
 /*   By: nmarmugi <nmarmugi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 11:52:03 by nmarmugi          #+#    #+#             */
-/*   Updated: 2024/01/29 11:52:36 by nmarmugi         ###   ########.fr       */
+/*   Updated: 2024/01/30 11:07:43 by nmarmugi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-static char	*ft_add_buffer(char *buffer, int fd)
+static char	*ft_up_buffer(char *buffer, int fd)
 {
 	char	*buffer_tmp;
-	int		read_chr;
+	int		read_char;
 
 	buffer_tmp = ft_calloc((BUFFER_SIZE + 1), sizeof(char));
 	if (!buffer_tmp)
 		return (NULL);
-	read_chr = BUFFER_SIZE;
-	while (!ft_strchr(buffer_tmp, '\n') && read_chr != 0)
+	read_char = BUFFER_SIZE;
+	while (!ft_strchr(buffer_tmp, '\n') && read_char != 0)
 	{
-		read_chr = read(fd, buffer_tmp, BUFFER_SIZE);
-		if (read_chr == -1)
+		read_char = read(fd, buffer_tmp, BUFFER_SIZE);
+		if (read_char == -1)
 		{
 			free(buffer_tmp);
 			return (NULL);
 		}
-		buffer = ft_strjoin(buffer, buffer_tmp, read_chr);
+		buffer = ft_strjoin(buffer, buffer_tmp, read_char);
 		if (ft_strlen(buffer) == 0)
 		{
 			free(buffer);
@@ -100,7 +100,7 @@ char	*get_next_line(int fd)
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	fd_buffer[fd] = ft_add_buffer(fd_buffer[fd], fd);
+	fd_buffer[fd] = ft_up_buffer(fd_buffer[fd], fd);
 	if (!fd_buffer[fd])
 		return (NULL);
 	line = ft_next_line(fd_buffer[fd]);
@@ -110,7 +110,7 @@ char	*get_next_line(int fd)
 
 // int	main()
 // {
-// // add_buffer: Concateno in un ciclo while,
+// // up_buffer: Concateno in un ciclo while,
 // // tot BUFFER_SIZE iterazioni fintanto che non trovo \n o fine fd.
 // // next_line: Estraggo da add_buffer la linea fino a \n o \0,
 // // con memoria allocata per essa + 2 per \n e \0 e ritorno alla linea.
@@ -125,10 +125,10 @@ char	*get_next_line(int fd)
 // 	while (i < 13)
 // 	{
 // 		str = get_next_line(fd1);
-// 		printf("Linea letta del file %i: (riga %i) :%s", 1, i +1, str);
+// 		printf("File %i: (riga %i) :%s", 1, i +1, str);
 // 		free(str);
 // 		str = get_next_line(fd2);
-// 		printf("Linea letta del file %i: (riga %i) :%s", 2, i +1, str);
+// 		printf("File %i: (riga %i) :%s", 2, i +1, str);
 // 		free(str);
 // 		i++;
 // 	}
