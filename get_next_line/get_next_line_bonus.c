@@ -135,3 +135,19 @@ char	*get_next_line(int fd)
 // 	close(fd1);
 // 	close(fd2);
 // }
+// int	main()
+// {
+// 	int		fd;
+// 	char	*str;
+// 	int		i;
+
+// 	i = 1;
+// 	fd = 0;
+// 	str = get_next_line(fd);
+// 	while (str != NULL)
+// 	{
+// 		printf("File %i: (riga %i) :%s", 1, i++, str);
+// 		free(str);
+// 		str = get_next_line(fd);
+// 	}
+// }
