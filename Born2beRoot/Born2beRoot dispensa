@@ -1,0 +1,102 @@
+COME FUNZIONA UNA MACCHINA VIRTUALE E IL SUO SCOPO
+
+Una macchina virtuale (VM) è un software che emula un computer all'interno di un altro sistema operativo. Questa emulazione consente di eseguire più sistemi operativi su un singolo hardware fisico. Le macchine virtuali consentono di eseguire diversi sistemi operativi su una singola macchina fisica, fornendo isolamento tra di essi. Questa tecnologia è ampiamente utilizzata per testare nuovi software, consolidare server, migliorare la sicurezza e semplificare la gestione delle risorse hardware.
+
+
+DEBIAN
+
+Debian è un sistema operativo basato su Linux, noto per essere un sistema operativo open source e gratuito. È uno dei sistemi operativi più popolari all'interno della famiglia Linux ed è utilizzato sia per scopi desktop che server. Debian è sviluppato da una comunità di volontari e segue il principio del software libero, il che significa che gli utenti hanno la libertà di eseguire, modificare e distribuire il sistema operativo.
+
+Caratteristiche principali di Debian includono:
+
+Stabilità: Debian è noto per la sua stabilità e affidabilità. La sua filosofia è quella di fornire un sistema robusto e sicuro, anche a discapito delle versioni più recenti del software.
+
+Gestore dei pacchetti APT: Debian utilizza il sistema di gestione dei pacchetti Advanced Package Tool (APT), che semplifica l'installazione, la rimozione e l'aggiornamento del software sul sistema.
+
+Ampia selezione di pacchetti: Debian offre un vasto repository di software, che include una vasta gamma di applicazioni, ambienti desktop, server, e molte altre utilità.
+
+Architettura multi-piattaforma: Debian supporta diverse architetture hardware, consentendo l'installazione su una varietà di dispositivi, come computer desktop, server, dispositivi embedded e altro ancora.
+
+Debian è anche la base per molti altri sistemi operativi popolari, tra cui Ubuntu, che è un fork di Debian. La sua natura stabile e l'impegno per il software libero lo rendono una scelta popolare per chi cerca una piattaforma robusta e libera.
+
+
+DIFFERENZA TRA APT E APTITUDE
+
+In generale, apt è diventato il comando preferito per molte operazioni quotidiane a causa della sua semplicità, mentre aptitude è spesso utilizzato da chi ha bisogno di funzionalità più avanzate o preferisce un'interfaccia testuale completa. Entrambi gli strumenti sono potenti e possono essere scelti in base alle preferenze personali e alle esigenze specifiche dell'utente. In sintesi apt è più semplice all'utilizzo rispetto ad aptitude, per interfaccia utente, funzionalità avanzate e sintassi dei comandi.
+
+
+APPARMOR
+
+AppArmor, acronimo di "Application Armor", è un sistema di sicurezza basato su kernel (è il cuore essenziale di un sistema operativo. Si tratta di un software che gestisce le risorse hardware del computer e fornisce una base per l'esecuzione delle applicazioni, è la componente fondamentale che consente al sistema operativo di funzionare) per sistemi Linux. Il suo scopo principale è fornire un meccanismo di controllo degli accessi basato su policy per limitare le azioni di programmi specifici. AppArmor è spesso utilizzato per aumentare la sicurezza del sistema, proteggendo da potenziali minacce e limitando le capacità dei programmi in esecuzione.
+AppArmor definisce policy di sicurezza specifiche per ciascun programma o servizio. Queste policy specificano quali risorse o operazioni un'applicazione è autorizzata a utilizzare.
+
+
+UFW, FIREWALL E SSH
+
+UFW, acronimo di "Uncomplicated Firewall", è uno strumento di gestione del FIREWALL (è un sistema di sicurezza che controlla e monitora il traffico di rete tra una rete privata e altre reti, come Internet. Il suo scopo principale è quello di proteggere il sistema o la rete da accessi non autorizzati, controllando e filtrando il traffico in base a regole predefinite. Un firewall può essere implementato a livello hardware o software e serve a prevenire intrusioni, monitorare e limitare il flusso di dati in ingresso e in uscita.) per i sistemi operativi basati su Linux, in particolare per quelli che utilizzano il sistema di gestione dei pacchetti Debian, come Ubuntu. UFW fornisce un'interfaccia semplificata per la configurazione del firewall su un sistema Linux, rendendo più accessibile la gestione delle regole di sicurezza.
+UFW include alcune regole predefinite che possono essere facilmente attivate o disattivate per consentire o bloccare il traffico in base a comuni scenari di utilizzo, come ad esempio il traffico SSH ((Secure Shell) è un protocollo di rete crittografato che consente di stabilire connessioni sicure e autenticate su una rete non sicura, come Internet. Utilizza tecniche di crittografia per proteggere la comunicazione tra due sistemi, consentendo agli utenti di accedere e gestire in modo sicuro un computer remoto attraverso una connessione crittografata. SSH è comunemente utilizzato per l'accesso remoto sicuro a server e dispositivi di rete).
+
+
+LVM
+
+LVM, acronimo di "Logical Volume Manager" (Gestore di Volume Logico), è una tecnologia utilizzata nei sistemi operativi Unix e Linux per gestire in modo flessibile lo spazio di archiviazione su dispositivi di storage come dischi rigidi. LVM consente di creare, ridimensionare, spostare e raggruppare volumi logici, offrendo una maggiore flessibilità nella gestione dello storage rispetto ai tradizionali sistemi di partizionamento.
+
+Physical Volumes (PV): I Physical Volumes sono i dischi fisici o le partizioni di dischi che vengono utilizzati da LVM. Questi dischi vengono inizializzati come Physical Volumes e poi possono essere inclusi in un Volume Group.
+
+Volume Group (VG): Il Volume Group è un insieme di Physical Volumes. Quando si creano Volume Groups, si può combinare lo spazio di più dischi in un unico pool di storage.
+
+Logical Volumes (LV): I Logical Volumes sono le unità di storage logiche create all'interno di un Volume Group. Possono essere considerati equivalenti a partizioni, ma con la flessibilità di ridimensionamento dinamico.
+
+File System: Su un Logical Volume è possibile creare un file system, che rappresenta la struttura di archiviazione dei dati accessibili dal sistema operativo.
+
+In termini pratici, LVM consente agli amministratori di sistema di gestire lo spazio di storage in modo più dinamico rispetto alle partizioni tradizionali. Ad esempio, è possibile estendere un Logical Volume aggiungendo spazio da un Volume Group senza dover riformattare o perdere dati. Questa flessibilità è particolarmente utile in ambienti in cui le esigenze di storage possono cambiare nel tempo.
+
+
+SCRIPT MONITORING
+
+Uno script di monitoraggio è un programma o uno script automatizzato progettato per controllare, raccogliere e riportare informazioni sullo stato di un sistema, di un'applicazione o di risorse specifiche. Questi script vengono comunemente utilizzati per monitorare la disponibilità, le prestazioni e altri aspetti critici di un sistema informatico. Ecco come generalmente funziona uno script di monitoraggio:
+
+Definizione degli Obiettivi di Monitoraggio:
+Prima di scrivere uno script di monitoraggio, è necessario definire gli obiettivi e gli indicatori chiave di prestazione che si desidera monitorare. Ciò potrebbe includere la disponibilità di servizi, l'utilizzo delle risorse, il numero di connessioni attive, ecc.
+
+Sviluppo dello Script:
+Lo script di monitoraggio viene scritto per eseguire controlli specifici o per raccogliere informazioni sullo stato del sistema o dell'applicazione. Gli script possono essere scritti in vari linguaggi di programmazione come Bash, Python, Perl, o altri, a seconda delle preferenze e delle competenze dell'amministratore di sistema.
+
+Esecuzione Periodica:
+Lo script viene eseguito periodicamente, ad intervalli predefiniti o tramite un programmatore di attività (cron job su sistemi Unix/Linux). L'esecuzione periodica consente di aggiornare costantemente le informazioni di monitoraggio.
+
+Controllo degli Indicatori di Prestazione:
+Lo script verifica gli indicatori di prestazione o esegue controlli specifici in base agli obiettivi di monitoraggio. Ad esempio, potrebbe verificare la risposta di un server web, il consumo di memoria di un'applicazione o lo spazio disponibile su un disco.
+
+Generazione di Report o Allarmi:
+Se lo script rileva un problema o un valore al di fuori dei limiti accettabili, può generare un allarme o inviare notifiche all'amministratore di sistema. Alcuni script possono anche registrare dati per analisi storiche o generare report periodici.
+
+Implementazione di Azioni Correttive:
+In alcuni casi, uno script di monitoraggio può essere progettato per intraprendere azioni correttive automatiche in risposta a determinati problemi. Ad esempio, potrebbe riavviare un servizio che è andato giù o avviare una pulizia dei file temporanei quando lo spazio su disco è quasi esaurito.
+
+Aggiornamento e Manutenzione:
+Gli script di monitoraggio devono essere aggiornati regolarmente per rispondere a nuove esigenze o cambiamenti nell'ambiente. La manutenzione continua è essenziale per assicurarsi che lo script rimanga efficace nel monitorare e rispondere a situazioni critiche.
+
+Gli script di monitoraggio sono uno strumento essenziale per la gestione dei sistemi, consentendo agli amministratori di sistema di identificare e risolvere problemi in modo proattivo, prima che possano causare gravi interruzioni o degradazioni delle prestazioni.
+
+
+CRON
+
+Cron è un servizio nei sistemi operativi Unix e Unix-like (come Linux) che consente la programmazione di attività automatiche in base a un orario o a intervalli di tempo specifici. Il nome "cron" deriva dalla parola greca "chronos", che significa tempo. È uno strumento fondamentale per l'automazione delle attività periodiche nel sistema.
+
+Ecco come funziona cron:
+
+Tabella di Cron:
+Il cuore di cron è una tabella di pianificazione chiamata "crontab". Ogni utente può avere la propria crontab, che contiene una lista di comandi e il momento in cui devono essere eseguiti.
+
+Sintassi della Crontab:
+La sintassi di una crontab è divisa in cinque campi principali che specificano quando un comando deve essere eseguito: minuti, ore, giorni del mese, mesi e giorni della settimana. Ad esempio, l'istruzione 0 2 * * * significa "alle 2:00 AM di ogni giorno".
+
+Comandi Cron:
+I comandi inseriti nella crontab possono essere qualsiasi comando di shell valido. Possono essere script, eseguibili o comandi di sistema.
+
+Esecuzione Periodica:
+Cron esegue automaticamente i comandi specificati nella crontab in base al programma di esecuzione definito. Questo può essere ogni minuto, ogni ora, giornalmente, mensilmente o in qualsiasi altro intervallo specificato.
+
+In sintesi, cron è uno strumento potente per automatizzare attività ricorrenti nei sistemi Unix-like, consentendo agli utenti di pianificare esecuzioni periodiche di comandi o script.
+
