@@ -100,3 +100,8 @@ Cron esegue automaticamente i comandi specificati nella crontab in base al progr
 
 In sintesi, cron è uno strumento potente per automatizzare attività ricorrenti nei sistemi Unix-like, consentendo agli utenti di pianificare esecuzioni periodiche di comandi o script.
 
+
+RAM
+
+La RAM (Random Access Memory) è una forma di memoria temporanea utilizzata dai computer per archiviare dati e istruzioni temporaneamente mentre il sistema è acceso. È più veloce della memoria di archiviazione a lungo termine, come l'hard disk, ma perde tutti i dati quando il computer viene spento. La RAM consente al computer di accedere rapidamente ai dati necessari per eseguire programmi e processi.
+
