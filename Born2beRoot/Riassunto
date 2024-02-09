@@ -1,0 +1,35 @@
+Macchina Virtuale:
+Una macchina virtuale (VM) è un software che emula un computer all'interno di un altro sistema operativo, consentendo l'esecuzione di più sistemi operativi in isolamento. È utilizzata per testare software, consolidare server e semplificare la gestione delle risorse hardware.
+
+Debian:
+Debian è un sistema operativo open source basato su Linux, noto per la sua stabilità, il gestore dei pacchetti APT, un vasto repository di software e il supporto a diverse architetture hardware. È la base per altri sistemi operativi come Ubuntu.
+
+Differenze tra Debian e Rocky Linux:
+Debian è indipendente, mentre Rocky Linux è basato su Red Hat Enterprise Linux (RHEL). Debian punta alla stabilità e al software libero, mentre Rocky Linux mira a essere una alternativa gratuita e open source a RHEL.
+
+APT e Aptitude:
+APT e Aptitude sono strumenti di gestione dei pacchetti in Debian. APT è più semplice, mentre Aptitude offre funzionalità avanzate e un'interfaccia testuale completa.
+
+AppArmor:
+AppArmor è un sistema di sicurezza basato su kernel per Linux, limitando le azioni di programmi specifici attraverso policy di sicurezza.
+
+UFW, Firewall e SSH:
+UFW è uno strumento di gestione del firewall per sistemi Linux. Può controllare il traffico, incluso quello per SSH (Secure Shell), un protocollo crittografato per connessioni sicure.
+
+LVM (Logical Volume Manager):
+LVM è utilizzato in Unix e Linux per gestire dinamicamente lo spazio di archiviazione su dischi. Include Physical Volumes, Volume Groups, Logical Volumes e permette la gestione flessibile dello storage.
+
+Script di Monitoraggio:
+Gli script di monitoraggio controllano lo stato di sistemi o applicazioni, definendo obiettivi, sviluppando script, eseguendoli periodicamente, controllando indicatori di prestazione e generando report o allarmi.
+
+Sudo:
+"Sudo" è un comando Unix/Linux che consente agli utenti di eseguire comandi con i privilegi di un altro utente, di solito l'amministratore.
+
+Cron:
+Cron è un servizio per la programmazione di attività automatiche su sistemi Unix-like. Utilizza una tabella di pianificazione chiamata "crontab".
+
+RAM (Random Access Memory):
+La RAM è una memoria temporanea utilizzata dai computer per archiviare dati e istruzioni temporaneamente durante l'esecuzione del sistema.
+
+CPU (Central Processing Unit):
+La CPU è il componente principale di un computer responsabile dell'esecuzione delle istruzioni di un programma e del controllo delle operazioni del sistema.
