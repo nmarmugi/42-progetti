@@ -1,0 +1,24 @@
+Compila il file con la flag “-g”.
+“gdb” a.out
+“shell nome_comando” per usare i comandi della shell.
+“run” per eseguire il codice (abbreviato con “r”).
+“break” per impostare un bp (abbreviato con “b”).
+“continue” per riprendere l’esecuzione del codice ( abbreviato con “c”).
+“clear nome_funzione” per rimuovere un bp da una funzione.
+“delete n_riga” per rimuovere un bp specifico.
+“delete” per rimuovere tutti i bp.
+“next” per andare alla riga successiva.
+“step” per entrare all’interno di una funzione.
+“finish” esegue il codice fino alla fine della funzione.
+“list” per stampare il codice fino a dove siamo arrivati.
+“frame” stampa la riga dettagliata di dove siamo arrivati.
+“up” o “down” per vedere gli stack di chiamate.
+“backtrace” stampa tutta la lista delle chiamate.
+“print” stampa il valore di una variabile.
+“whatis nome_variabile” per stampare il tipo di dato.
+“display nome_variabile” monitora continuamente il valore di una variabile.
+“undisplay ID_variabile” per smettere di monitorare la variabile.
+“watch nome_variabile” monitora una variabile solo ad ogni cambiamento.
+“delete ID_watch” per cancellare un watch.
+“set variable nome_variabile = num” per cambiare il valore di una variabile.
+CTRL + X / CTRL + A o gdbtui
