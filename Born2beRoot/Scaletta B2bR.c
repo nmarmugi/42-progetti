@@ -22,9 +22,9 @@ Simple setup
 User
 - controllo che l'user sia gfalorsi [whoami] [sudo adduser gfalorsi]
 - controllo che l'user appartenga ai gruppi "sudo" e "user42" [getent group sudo/user42]
-- controllo che la policy della password sia stata impostata
+- controllo che la policy della password sia stata impostata (vim /etc/pam.d/common-password)
 - creare un nuovo user + password [sudo adduser prova]
-- spiegare come impostare la policy della password (ci dovrebbero essere uno o due file modificati)
+- spiegare come impostare la policy della password (vim /etc/login.defs)
 - creare un nuovo gruppo "evaluating" [sudo groupadd evaluating]
 - aggiungere il nuovo user al gruppo [sudo adduser prova evaluating]
 - controllo che il nuovo user sia nel gruppo [sudo getent group evaluating]
@@ -42,7 +42,7 @@ Sudo
 - controllo che il programma "sudo" sia installato nella macchina [sudo -V]
 - aggiungere il nuovo user al gruppo "sudo" [sudo adduser prova sudo]
 - spiegare il valore e la funzionalita' di sudo
-- controllo che le regole per sudo siano state implementate [vim /etc/sudoers.d/sudo-config]
+- controllo che le regole per sudo siano state implementate [vim /etc/sudoers.d/sudo_config]
 - controllo che esista la cartella "var/log/sudo" e che contenga almeno un file [cd /var/log/sudo]
 - controllo del contenuto del file in questa cartella: deve mostrare la storia dei comandi usati con sudo [vim /var/log/sudo/sudo_config]
 - provare un comando con sudo
