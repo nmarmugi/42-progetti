@@ -123,3 +123,54 @@ CPU
 
 La CPU (Central Processing Unit) è il componente principale di un computer responsabile dell'esecuzione delle istruzioni di un programma e del controllo delle operazioni del sistema.
 
+
+PLUS
+
+retry=3 ➤ Tre tentativi di inserimento password.
+
+minlen=10 ➤ Il numero minimo di caratteri che la password deve contenere.
+
+ucredit=-1 ➤ Almeno una lettera maiuscola. (Mettiamo il - perché deve contenere almeno un carattere, se mettiamo + intendiamo al massimo quei caratteri.)
+
+dcredit=-1 ➤ Deve contenere almeno una cifra.
+
+lcredit=-1 ➤ Deve contenere almeno una lettera minuscola.
+
+maxrepeat=3 ➤ Non può contenere più di 3 volte di seguito lo stesso carattere.
+
+reject_username ➤ Non può contenere il nome dell'utente.
+
+difok=7 ➤ Deve contenere almeno 7 caratteri che non fanno parte della vecchia password.
+
+enforce_for_root ➤ Verrà implementata questa politica per l'utente root.
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+Defaults passwd_tries=3: Imposta il numero massimo di tentativi consentiti per immettere la password prima che sudo restituisca un errore.
+
+Defaults badpass_message="Messaggio di errore personalizzato": Specifica un messaggio di errore personalizzato che verrà visualizzato in caso di inserimento di una password errata.
+
+Defaults logfile="/var/log/sudo/sudo_config": Specifica il percorso del file di log per le attività di sudo.
+
+Defaults log_input, log_output: Abilita la registrazione di input e output dei comandi eseguiti con sudo.
+
+Defaults iolog_dir="/var/log/sudo": Specifica la directory in cui verranno memorizzati i file di log delle sessioni di input/output di sudo.
+
+Defaults requiretty: Richiede un terminale per l'esecuzione di comandi con sudo. Può essere disabilitato se si sta eseguendo sudo da uno script o da un ambiente senza terminale.
+
+Defaults secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin": Imposta un percorso sicuro per gli eseguibili che possono essere eseguiti con sudo, limitando il rischio di esecuzione di comandi dannosi.
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+    cpul=$(vmstat 1 2 | tail -1 | awk '{printf $15}'): Ottiene l'utilizzo della CPU negli ultimi 2 secondi.
+    cpu_op=$(expr 100 - $cpul): Calcola l'uso percentuale rimanente della CPU.
+    cpu_fin=$(printf "%.1f" $cpu_op): Formatta il risultato come un numero decimale con una cifra dopo la virgola.
+
+LAST BOOT, LVM USE, TCP CONNECTIONS, USER LOG, NETWORK, SUDO:
+
+    lb=$(who -b | awk '$1 == "system" {print $3 " " $4}'): Ottiene la data e l'ora dell'ultimo avvio.
+    lvmu=$(if [ $(lsblk | grep "lvm" | wc -l) -gt 0 ]; then echo yes; else echo no; fi): Verifica se LVM è in uso.
+    tcpc=$(ss -ta | grep ESTAB | wc -l): Conta il numero di connessioni TCP stabilite.
+    ulog=$(users | wc -w): Conta il numero di utenti collegati.
+    ip=$(hostname -I), mac=$(ip link | grep "link/ether" | awk '{print $2}'): Ottiene l'indirizzo IP e l'indirizzo MAC.
+    cmnd=$(journalctl _COMM=sudo | grep COMMAND | wc -l): Conta il numero di comandi eseguiti con sudo.
+
+wall:
+
+    wall: Invia un messaggio a tutti gli utenti terminali. Il messaggio include le informazioni raccolte nei passi precedenti.

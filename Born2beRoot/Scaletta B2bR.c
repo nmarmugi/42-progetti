@@ -15,7 +15,7 @@ Simple setup
 - richiesta password
 - connessione all'user (no root)
 - controllo password come richiesta dal subject
-- controllo che l'UFW sia attivo [sudo ufw status / sudo ufw status verbose]
+- controllo che l'UFW sia attivo [sudo service ufw status / sudo ufw status verbose]
 - controllo che l'SSH sia attivo [sudo service ssh status]
 - controllo che ci sia Debian come OS [uname -v]
 
