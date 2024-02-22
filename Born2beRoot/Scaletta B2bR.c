@@ -71,7 +71,7 @@ Script monitoring
 - cosa e' cron
 - spiegare come e' stato implementato lo script in modo tale che compaia ogni 10 min [vim /home/gfalorsi/monitoring.sh]
 - implementare che lo script compaia ogni minuto [crontab -u root -e e mettere 1 al posto di 10]
-- fermare lo script: non deve piu' comparire all'accensione della macchina ma non deve essere modificato [metti commento]
+- fermare lo script: non deve piu' comparire all'accensione della macchina ma non deve essere modificato [metti commento/sudo service cron stop e start per riavviare]
 - riavviare la macchina
 - controllo che lo script esista nello stesso posto e che non sia stato modificato
 
