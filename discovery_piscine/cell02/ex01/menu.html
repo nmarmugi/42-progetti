@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropdown Menu on Clicking Image</title>
+    <link rel="stylesheet" href="menu.css">
+</head>
+<body>
+
+    <div class="dropdown" onclick="toggleDropdown()">
+        <img src="https://img.freepik.com/premium-photo/burger-white-background_398492-13237.jpg" width="150px">
+        <div class="dropdown-content">
+            <a href="#">PANE</a>
+            <a href="#">INSALATA</a>
+            <a href="#">POMODORO</a>
+            <a href="#">CIPOLLA</a>
+            <a href="#">CHEDDAR</a>
+            <a href="#">HAMBURGHER</a>
+        </div>
+    </div>
+
+    <script>
+        function toggleDropdown() {
+            var dropdownContent = document.querySelector('.dropdown-content');
+            dropdownContent.style.display = (dropdownContent.style.display === 'block') ? 'none' : 'block';
+        }
+    </script>
+
+</body>
+</html>

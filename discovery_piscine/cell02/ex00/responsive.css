@@ -1,0 +1,16 @@
+.Tab {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid #000;
+    position: relative;
+}
+
+.Tab1 {
+    width: 50%;
+    background-color: #751c1c;
+}
+
+.Tab2 {
+    width: 50%;
+    background-color: #1c1c75;
+}

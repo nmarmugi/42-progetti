@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balloon</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #balloon {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        #balloon:hover {
+            transform: scale(0.95);
+        }
+
+        #balloon:active {
+            transform: scale(1.1);
+        }
+
+        #balloon.explode {
+            animation: explode 0.5s ease;
+            transform: scale(1);
+        }
+
+        @keyframes explode {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div id="balloon" onclick="expandBalloon()" onmouseout="shrinkBalloon()"></div>
+
+<script>
+    let balloon = document.getElementById('balloon');
+    let currentSize = 200;
+    let currentColorIndex = 0;
+    let colors = ['red', 'green', 'blue'];
+
+    function expandBalloon() {
+        currentSize += 10;
+        if (currentSize > 420) {
+            balloon.classList.add('explode');
+            setTimeout(() => {
+                balloon.classList.remove('explode');
+                currentSize = 200;
+                currentColorIndex = 0;
+                updateBalloon();
+            }, 500);
+        } else {
+            updateBalloon();
+        }
+    }
+
+    function shrinkBalloon() {
+        currentSize = Math.max(200, currentSize - 5);
+        updateBalloon();
+    }
+
+    function updateBalloon() {
+        balloon.style.width = `${currentSize}px`;
+        balloon.style.height = `${currentSize}px`;
+        balloon.style.backgroundColor = colors[currentColorIndex];
+        currentColorIndex = (currentColorIndex - 1 + colors.length) % colors.length;
+    }
+</script>
+
+</body>
+</html>

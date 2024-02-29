@@ -1,0 +1,39 @@
+body, html {
+	margin: 0;
+	padding: 0;
+	}
+	.parallax-bg, .parallax-bg-2 {
+	  background-attachment: fixed;
+	  background-position: center;
+	  background-repeat: no-repeat;
+	  background-size: cover;
+	  height: 100vh;
+	  position: relative;
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  text-align: center;
+  }
+	.parallax-content {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+	color: white;
+	}
+	.black-block {
+	background-color: black;
+	height: 300px;
+	}
+	.block-content {
+	text-align: center;
+	padding-top: 100px;
+	color: white;
+	}
+	.parallax-bg {
+	background-image: url('https://cdn.hswstatic.com/gif/why-is-sky-blue.jpg');
+	}
+	.parallax-bg-2 {
+	background-image: url('https://res.cloudinary.com/compo-com/image/fetch/c_fill,g_xy_center,f_auto,w_570,h_428,x_iw_mul_50_div_100,y_ih_mul_50_div_100/https://www.compo.de/dam/jcr:4e667ff9-1667-4520-b98c-fffd99465fda/new-lawn_rasen-neuanlage_2.jpg');
+	}

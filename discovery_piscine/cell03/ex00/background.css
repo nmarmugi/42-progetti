@@ -1,0 +1,16 @@
+body {
+	transition: background-color 0.5s ease;
+	text-align: center;
+	margin: 0;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+  }
+  
+  button {
+	font-size: 16px;
+	padding: 10px 20px;
+	cursor: pointer;
+  }
+  
