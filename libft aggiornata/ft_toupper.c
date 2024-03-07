@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   isdigit.c                                          :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmarmugi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/18 16:19:07 by nmarmugi          #+#    #+#             */
-/*   Updated: 2023/12/18 16:24:08 by nmarmugi         ###   ########.fr       */
+/*   Created: 2023/12/20 12:18:45 by nmarmugi          #+#    #+#             */
+/*   Updated: 2023/12/20 12:18:49 by nmarmugi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isdigit(int c)
+int	ft_toupper(int c)
 {
-	if (c >= 48 && c <= 57)
-		return (1);
+	if (c >= 97 && c <= 122)
+		return (c - 32);
 	else
-		return (0);
+		return (c);
 }
 /*int	main()
 {
-// Vede se è un valore numerico
+// Cambia da minuscole a maiuscole e non varia le minuscole di una stringa
+// passata
 	int	c;
 	
-	c = 'o';
-	if (ft_isdigit(c) == 1)
-		write (1, "1\n", 2);
-	else
-		write (1, "0\n", 2);
+	c = 'A';
+	printf("%c\n", (char)ft_toupper(c));
 	return (0);
-}
+}*/
