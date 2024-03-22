@@ -6,7 +6,7 @@
 /*   By: nmarmugi <nmarmugi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 08:43:15 by nmarmugi          #+#    #+#             */
-/*   Updated: 2024/03/21 08:59:50 by nmarmugi         ###   ########.fr       */
+/*   Updated: 2024/03/22 21:50:47 by nmarmugi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ typedef struct stack
 	struct stack *prev;
 }	stackNode;
 
-int	main(int ac, char **av);
+int main(int ac, char **av);
 char	**av_check(int ac, char **av);
 
 #endif

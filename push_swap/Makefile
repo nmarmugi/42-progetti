@@ -6,11 +6,11 @@
 #    By: nmarmugi <nmarmugi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/22 12:23:13 by nmarmugi          #+#    #+#              #
-#    Updated: 2024/03/21 08:41:57 by nmarmugi         ###   ########.fr        #
+#    Updated: 2024/03/22 21:08:27 by nmarmugi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = push_swap
+NAME = push_swap.a
 
 LIBFTPATH = ./libft
 
