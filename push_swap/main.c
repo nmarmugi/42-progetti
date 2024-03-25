@@ -6,7 +6,7 @@
 /*   By: nmarmugi <nmarmugi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 21:07:28 by nmarmugi          #+#    #+#             */
-/*   Updated: 2024/03/25 12:09:42 by nmarmugi         ###   ########.fr       */
+/*   Updated: 2024/03/25 12:56:23 by nmarmugi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,17 @@
 
 int main(int ac, char **av)
 {
-    stackNode	*stack_a;
-	stackNode	*stack_b;
-    
-    if (ac < 2)
-		return (0);
-	if (!valid_input(av))
-		error(NULL, NULL);
-    return (0);
+    char **result = av_check(ac, av);
+
+    if (result != NULL)
+    {
+        int i = 0;
+        while (result[i] != NULL)
+        {
+             printf("%s\n", result[i]);
+            i++;
+        }
+    }
+
+    return 0;
 }

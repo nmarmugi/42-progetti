@@ -6,7 +6,7 @@
 #    By: nmarmugi <nmarmugi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/22 12:23:13 by nmarmugi          #+#    #+#              #
-#    Updated: 2024/03/25 12:09:28 by nmarmugi         ###   ########.fr        #
+#    Updated: 2024/03/25 12:48:41 by nmarmugi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ LIBFTPATH = ./libft
 
 LIBFTNAME = libft.a
 
-SRCS =	main.c valid_input.c valid_input_utils.c \
+SRCS =	main.c av_check.c \
 		
 OBJS = $(SRCS:.c=.o)
 
