@@ -6,7 +6,7 @@
 #    By: nmarmugi <nmarmugi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/22 12:23:13 by nmarmugi          #+#    #+#              #
-#    Updated: 2024/03/07 12:34:02 by nmarmugi         ###   ########.fr        #
+#    Updated: 2024/03/25 10:46:03 by nmarmugi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,6 +52,7 @@ SRCS =	ft_atoi.c \
 		ft_printf_hex.c \
 		get_next_line.c \
 		get_next_line_utils.c \
+		ft_isoperator.c \
 		
 OBJS = $(SRCS:.c=.o)
 
