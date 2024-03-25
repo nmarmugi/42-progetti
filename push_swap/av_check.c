@@ -6,7 +6,7 @@
 /*   By: nmarmugi <nmarmugi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 12:42:41 by nmarmugi          #+#    #+#             */
-/*   Updated: 2024/03/22 21:50:19 by nmarmugi         ###   ########.fr       */
+/*   Updated: 2024/03/25 16:40:42 by nmarmugi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,9 @@ char	**av_check(int ac, char **av)
 				{
 					while ((av[j][i]))
 					{
-						if ((av[j][i] >= 9 && av[j][i] <= 13) || (av[j][i] >= 33 && av[j][i] <= 42) ||
+						if (ft_isoperator(av[j][i]) == 1)
+							i++;
+						if ((ft_isoperator(av[j][i]) == 1) || (av[j][i] >= 9 && av[j][i] <= 13) || (av[j][i] >= 33 && av[j][i] <= 42) ||
 							(av[j][i] == 44) || (av[j][i] >= 46 && av[j][i] <= 47) || (av[j][i] >= 58 && av[j][i] <= 126))
 							{
 								write(2, "Error\n", 6);
@@ -50,14 +52,15 @@ char	**av_check(int ac, char **av)
 				{
 					while (av[j][i])
 					{
-						if ((av[j][i] >= 9 && av[j][i] <= 13) || (av[j][i] >= 33 && av[j][i] <= 42) ||
+						if (ft_isoperator(av[j][i]) == 1)
+							i++;
+						if ((ft_isoperator(av[j][i]) == 1) || (av[j][i] >= 9 && av[j][i] <= 13) || (av[j][i] >= 32 && av[j][i] <= 42) ||
 							(av[j][i] == 44) || (av[j][i] >= 46 && av[j][i] <= 47) || (av[j][i] >= 58 && av[j][i] <= 126))
 							{
 								write(2, "Error\n", 6);
 								return NULL;
 							}
-						while ((ft_isdigit(av[j][i]) == 1) || (av[j][i] == 32) || (av[j][i] == '+') ||
-						(av[j][i] == '-'))
+						while ((ft_isdigit(av[j][i]) == 1) || (ft_isoperator(av[j][i]) == 1))
 							i++;
 					}
 				}
