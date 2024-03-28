@@ -1,21 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isoperator.c                                    :+:      :+:    :+:   */
+/*   ft_limits_ps.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmarmugi <nmarmugi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/25 10:44:14 by nmarmugi          #+#    #+#             */
-/*   Updated: 2024/03/26 18:07:52 by nmarmugi         ###   ########.fr       */
+/*   Created: 2024/03/28 20:01:54 by nmarmugi          #+#    #+#             */
+/*   Updated: 2024/03/28 20:01:56 by nmarmugi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isoperator(int c)
+void	ft_limits_ps(long long n, int sign)
 {
-	if (c == '+' || c == '-')
-		return (1);
-	else
-		return (0);
+	if (sign == 1)
+	{
+		if (n > INT_MAX)
+		{
+			write (2, "Error\n", 6);
+			exit (1);
+		}
+	}
+	if (sign == -1)
+	{
+		if (n < INT_MIN)
+		{
+			write (2, "Error\n", 6);
+			exit (1);
+		}
+	}
 }

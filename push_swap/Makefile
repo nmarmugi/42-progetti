@@ -5,18 +5,21 @@
 #                                                     +:+ +:+         +:+      #
 #    By: nmarmugi <nmarmugi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/12/22 12:23:13 by nmarmugi          #+#    #+#              #
-#    Updated: 2024/03/25 12:48:41 by nmarmugi         ###   ########.fr        #
+#    Created: 2024/03/28 20:03:52 by nmarmugi          #+#    #+#              #
+#    Updated: 2024/03/28 20:03:54 by nmarmugi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = push_swap.a
+NAME = push_swap
 
 LIBFTPATH = ./libft
 
 LIBFTNAME = libft.a
 
-SRCS =	main.c av_check.c \
+SRCS =	av_check.c \
+		main.c \
+		av_check_duplicate.c \
+		av_check_utils.c
 		
 OBJS = $(SRCS:.c=.o)
 

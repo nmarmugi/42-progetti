@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmarmugi <nmarmugi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/21 08:43:15 by nmarmugi          #+#    #+#             */
-/*   Updated: 2024/03/25 16:11:30 by nmarmugi         ###   ########.fr       */
+/*   Created: 2024/03/28 20:03:43 by nmarmugi          #+#    #+#             */
+/*   Updated: 2024/03/28 20:03:45 by nmarmugi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,20 @@
 # include "./libft/libft.h"
 # include <limits.h>
 
-# ifndef MIN_INT
-#  define MIN_INT -2147483648
-# endif
-
-# ifndef MAX_INT
-#  define MAX_INT 2147483647
-# endif
-
 typedef struct stack
 {
-	int	value;
-	struct stack *next;
-	struct stack *prev;
-}	stackNode;
+	int				value;
+	struct stack	*next;
+	struct stack	*prev;
+}	t_stackNode;
 
-int main(int ac, char **av);
-char	**av_check(int ac, char **av);
+int		main(int ac, char **av);
+char	**av_one_arg(char **av);
+char	**av_args(char **av);
+int		have_duplicates(char **av);
+int		have_duplicates_arr(char **av);
+int		is_correct_zero(char **av);
+int		is_correct_zero_arr(char **av);
+int		arg_is_zero(char *av);
 
 #endif

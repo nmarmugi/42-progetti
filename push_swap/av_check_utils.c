@@ -1,21 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isoperator.c                                    :+:      :+:    :+:   */
+/*   av_check_utils.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmarmugi <nmarmugi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/25 10:44:14 by nmarmugi          #+#    #+#             */
-/*   Updated: 2024/03/26 18:07:52 by nmarmugi         ###   ########.fr       */
+/*   Created: 2024/03/28 20:04:16 by nmarmugi          #+#    #+#             */
+/*   Updated: 2024/03/28 20:04:18 by nmarmugi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-int	ft_isoperator(int c)
+int	is_correct_zero_arr(char **av)
 {
-	if (c == '+' || c == '-')
+	int	i;
+	int	nb_zeros;
+
+	nb_zeros = 0;
+	i = 0;
+	while (av[i])
+	{
+		nb_zeros += arg_is_zero(av[i]);
+		i++;
+	}
+	if (nb_zeros > 1)
+	{
+		write (2, "Error\n", 6);
 		return (1);
-	else
-		return (0);
+	}
+	if (have_duplicates_arr(av) == 1)
+		return (1);
+	return (0);
 }

@@ -1,21 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isoperator.c                                    :+:      :+:    :+:   */
+/*   ft_atoi_ps.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmarmugi <nmarmugi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/25 10:44:14 by nmarmugi          #+#    #+#             */
-/*   Updated: 2024/03/26 18:07:52 by nmarmugi         ###   ########.fr       */
+/*   Created: 2024/03/28 20:01:22 by nmarmugi          #+#    #+#             */
+/*   Updated: 2024/03/28 20:01:24 by nmarmugi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isoperator(int c)
+int	ft_atoi_ps(const char *str)
 {
-	if (c == '+' || c == '-')
-		return (1);
-	else
-		return (0);
+	int			sign;
+	long long	res;
+
+	sign = 1;
+	res = 0;
+	while (*str == ' ' || (*str >= 9 && *str <= 13))
+		str++;
+	if (*str == '-' || *str == '+')
+	{
+		if (*str == '-')
+			sign *= -1;
+		str++;
+	}
+	while (*str >= '0' && *str <= '9')
+	{
+		res = res * 10 + (*str - '0');
+		str++;
+	}
+	ft_limits_ps(res, sign);
+	return ((int)res * sign);
 }

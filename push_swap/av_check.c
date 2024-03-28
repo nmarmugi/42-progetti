@@ -5,73 +5,115 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmarmugi <nmarmugi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/21 12:42:41 by nmarmugi          #+#    #+#             */
-/*   Updated: 2024/03/25 16:40:42 by nmarmugi         ###   ########.fr       */
+/*   Created: 2024/03/28 20:04:08 by nmarmugi          #+#    #+#             */
+/*   Updated: 2024/03/28 20:04:10 by nmarmugi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./libft/libft.h"
 #include "push_swap.h"
 
-char	**av_check(int ac, char **av)
+static int	av_empty(char **av, int j)
 {
-	if (ac >= 2)
-	{
-		int		i;
-		int		j;
-		char 	**temp;
-		
-		j = 1;
-		while (j < ac)
-		{
-			i = 0;
-			if (av[j][i] == '\0')
-			{
-				write(2, "Error\n", 6);
-				return NULL;
-			}
-			while (av[j][i])
-			{
-				if (ac == 2)
-				{
-					while ((av[j][i]))
-					{
-						if (ft_isoperator(av[j][i]) == 1)
-							i++;
-						if ((ft_isoperator(av[j][i]) == 1) || (av[j][i] >= 9 && av[j][i] <= 13) || (av[j][i] >= 33 && av[j][i] <= 42) ||
-							(av[j][i] == 44) || (av[j][i] >= 46 && av[j][i] <= 47) || (av[j][i] >= 58 && av[j][i] <= 126))
-							{
-								write(2, "Error\n", 6);
-								return NULL;
-							}
-						i++;
-					}
-					return (ft_split(av[1], ' '));
-				}
-				else
-				{
-					while (av[j][i])
-					{
-						if (ft_isoperator(av[j][i]) == 1)
-							i++;
-						if ((ft_isoperator(av[j][i]) == 1) || (av[j][i] >= 9 && av[j][i] <= 13) || (av[j][i] >= 32 && av[j][i] <= 42) ||
-							(av[j][i] == 44) || (av[j][i] >= 46 && av[j][i] <= 47) || (av[j][i] >= 58 && av[j][i] <= 126))
-							{
-								write(2, "Error\n", 6);
-								return NULL;
-							}
-						while ((ft_isdigit(av[j][i]) == 1) || (ft_isoperator(av[j][i]) == 1))
-							i++;
-					}
-				}
-			}
-			j++;
-		}
-		return (temp = av+1);
-	}
-	else
+	if (av[j][0] == '\0')
 	{
 		write (2, "Error\n", 6);
-		exit(1);
+		return (1);
 	}
+	return (0);
+}
+
+static int	check_space(char **av)
+{
+	if (av_empty(av, 1) == 1)
+		return (1);
+	if (!av[1][1] && av[1][0] == ' ')
+	{
+		write (2, "Error\n", 6);
+		return (1);
+	}
+	return (0);
+}
+
+static int	check_moreoperator(char **av)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 1;
+	while (av[j])
+	{
+		i = 0;
+		while (av[j][i])
+		{
+			if (ft_isoperator(av[j][i]) == 1)
+			{
+				i++;
+				if (ft_isdigit(av[j][i]) == 0)
+				{
+					write (2, "Error\n", 6);
+					return (1);
+				}
+			}
+			i++;
+		}
+		j++;
+	}
+	return (0);
+}
+
+char	**av_one_arg(char **av)
+{
+	int	i;
+
+	i = 0;
+	if (check_space(av) == 1)
+		return (NULL);
+	while (av[1][i])
+	{
+		if (ft_isoperator(av[1][i]) == 1)
+		{
+			i++;
+			if (ft_isdigit(av[1][i]) == 0)
+			{
+				write (2, "Error\n", 6);
+				return (NULL);
+			}
+		}
+		if ((ft_isdigit(av[1][i]) == 0) && (av[1][i] != 32))
+		{
+			write (2, "Error\n", 6);
+			return (NULL);
+		}
+		i++;
+	}
+	return (ft_split(av[1], ' '));
+}
+
+char	**av_args(char **av)
+{
+	int		i;
+	int		j;
+
+	i = 0;
+	j = 1;
+	while (av[j])
+	{
+		if (av_empty(av, j) == 1)
+			return (NULL);
+		while (av[j][i])
+		{
+			if (ft_isdigit(av[j][i]) == 0 && ft_isoperator(av[j][i]) == 0)
+			{
+				write(2, "Error\n", 6);
+				return (NULL);
+			}
+			if ((check_moreoperator(av) == 1) || (have_duplicates(av) == 1))
+				return (NULL);
+			i++;
+		}
+		j++;
+		i = 0;
+	}
+	return (av + 1);
 }
